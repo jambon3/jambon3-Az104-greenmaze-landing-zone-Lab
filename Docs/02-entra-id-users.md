@@ -1,7 +1,6 @@
 # Microsoft Entra Admin Center
 
-GUI 
-
+GUI  
 Entra > Users > New user > Create new user or Invite external user
 ```text
 │
