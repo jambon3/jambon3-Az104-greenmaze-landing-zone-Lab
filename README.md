@@ -2,8 +2,41 @@
 
 Landing zone lab for GreenMaze.
 
+## 1. Project
+
+# Azure Company Foundation
+
+This project simulates the design and implementation of an Azure foundation for a fictional company, KrinCloud Technologies.
+
+## 2. Objective
+
+The objective of this lab is to establish a basic Azure governance and resource organization structure before deploying application workloads.
+
+## 3. Architecture
+
+                    GreenMaze Azure Tenant
+                             │
+                    ┌────────┴────────┐
+                    │  Management      │
+                    │     Groups       │
+                    └────────┬────────┘
+                             │
+              ┌──────────────┴──────────────┐
+              │                             │
+        Production                    Development
+              │                             │
+      ┌───────┴───────┐             ┌───────┴───────┐
+      │ Resource       │             │ Resource       │
+      │ Groups         │             │ Groups         │
+      └───────┬───────┘             └───────┬───────┘
+              │                             │
+       Azure Resources                Azure Resources
+
+The following diagram shows the proposed Azure organizational structure for GreenMaze.
+
 ## Phase 1 — Azure Foundation
 
+This project simulates the design and implementation of an Azure foundation for a fictional company,  greenmaze.
 The objective of this phase is to establish the foundational Azure governance, identity, access control, and organizational structure for GreenMaze.
 
 ### Tasks
