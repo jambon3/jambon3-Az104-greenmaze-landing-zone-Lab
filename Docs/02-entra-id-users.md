@@ -55,16 +55,14 @@ Microsoft Entra ID
                        based on device attributes/rules.
 ```
 
-Select New group.
+## Group type
+Security groups are commonly used for access management.
 
-Configure the settings:
 
-Group type: Select Security
-
-Group name: Choose a descriptive name (e.g., Sales Team - Standard Access).
-
-Membership type: Dynamic User
-
+Select New group. 
+Group type: Select Security  
+Group name: Choose a descriptive name (e.g., Sales Team - Standard Access).  
+Membership type: <span style="color:green">Assigned User</span>  
 Click Create.
 
 <img src="image/create-group-user.png" alt="Create Group User" width="600">
@@ -72,7 +70,13 @@ Click Create.
 Pick Assigned if: You don't have Entra ID P1/P2 licenses, your team is small, or membership doesn't follow a logical rule based on user attributes.
 
 Pick Dynamic if: Every new user in a specific department/title needs access automatically as soon as their profile is created.
-****Dynamic membership in Microsoft Entra ID requires Microsoft Entra ID P1 or P2
+<span style="color:red">****Dynamic membership in Microsoft Entra ID requires Microsoft Entra ID P1 or P2>Assigned User</span>
+
+The important distinction is:
+
+Assigned = you manage membership.  
+Dynamic User = Entra manages users based on rules.  
+Dynamic Device = Entra manages devices based on rules.  
 
 ## Step 2: Add the template group to your management structure
 
@@ -81,7 +85,7 @@ The security group becomes the reusable template. Instead of assigning permissio
 
 Step 3: Create the user  
 Microsoft Entra admin center → Identity → Users → All users → New user  
-Display name: John Smith  
-User principal name: john.smith@company.com  
-Job title: Accountant  
-Department: Accounting  
+Display name: Luc 
+User principal name: Luc.Plante@company.com  
+Job title: Software Engineering Manager  
+Department: Software Engineering  
