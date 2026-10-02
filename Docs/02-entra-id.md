@@ -24,30 +24,6 @@ Executive Leadership	         8	        CEO, CTO, CIO, CFO, COO and senior leade
 Facilities & Administration	    10	        Office operations, facilities, administration
 
 ## Organizational structure
-'''text
-GreenMaze Technologies
-│
-├── Executive Leadership — 8
-│
-├── Technology
-│   ├── Software Engineering — 75
-│   ├── IT & Cloud Infrastructure — 25
-│   ├── Cybersecurity — 15
-│   ├── Data & Analytics — 20
-│   ├── Product Management — 15
-│   └── Quality Assurance — 25
-│
-├── Customer & Revenue
-│   ├── Sales — 35
-│   ├── Customer Success & Support — 30
-│   └── Marketing — 15
-│
-└── Corporate Services
-    ├── Finance & Accounting — 12
-    ├── Human Resources — 10
-    ├── Legal & Compliance — 5
-    └── Facilities & Administration — 10
-'''
 
 ```text
 GreenMaze Technologies
