@@ -1,10 +1,10 @@
-# Jambon3-Az104-greenmaze-landing-zone-Lab
+# Jambon3-Az104-Greenmaze-landing-zone-Lab
 
 Landing zone lab for GreenMaze.
 
 ## 1. Project
 
-This project simulates the design and implementation of an Azure foundation for a fictional company, KrinCloud Technologies.
+This project simulates the design and implementation of an Azure foundation for a fictional company, Greenmaze Technologies.
 
 ## 2. Objective
 
