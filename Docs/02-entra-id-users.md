@@ -14,7 +14,7 @@ Entra > Users > New user > Create new user or Invite external user
 ```
 ## Create new user individually
 
-<img src="create-user.png" alt="alt text" width="600">
+<img src="Docs/image/create-user.png" alt="alt text" width="600">
 Display Name: The user's friendly, full name as it appears in the organization's directory .   
 
 Principal Name (User Principal Name / UPN): The unique sign-in identifier and email-like address used by the user to authenticate and access the directory.
@@ -55,7 +55,7 @@ Group type: Select Security
 Group name: Choose a descriptive name (e.g., Sales Team - Standard Access).
 Membership type: Dynamic User
 Click Create.
-<img src="create-group-user.png" alt="alt text" width="600">
+<img src="Docs/image/create-group-user.png" alt="alt text" width="600">
 
 
 Pick Assigned if: You don't have Entra ID P1/P2 licenses, your team is small, or membership doesn't follow a logical rule based on user attributes.
