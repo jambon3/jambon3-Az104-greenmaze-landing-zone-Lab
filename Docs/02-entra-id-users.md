@@ -11,7 +11,7 @@ Entra > Users > New user > Create new user or Invite external user
         │
         └── Invite external user
 ```
-## Create new user individually
+# Create new user individually
 <img src="image/create-user.png" alt="Create User" width="600">
 Display Name: The user's friendly, full name as it appears in the organization's directory.
 
@@ -19,7 +19,7 @@ Principal Name: (User Principal Name / UPN): The unique sign-in identifier and e
 
 Department and location are IMPORTANT to add for RBAC
 
-## Create new user with Group-Based Management (Recommended)
+# Create new user with Group-Based Management (Recommended)
 
 ## Step 1: Create a Template Security Group
 
@@ -87,3 +87,46 @@ Display name: Luc
 User principal name: Luc.Plante@company.com  
 Job title: Software Engineering Manager  
 Department: Software Engineering  
+
+# Create Bulk user  
+Microsoft Entra admin center → Entra ID → Users → Bulk operations → Bulk create  
+1. To download Microsoft's CSV template > Bulk create → Download  
+ → Entra ID → Users → Bulk operations → Bulk create → Upload → submit
+
+The important required fields are: User's display name, User principal name = login, password, Block sign in
+
+My group membership type is Assigned because I dont have P1, P2 licence.
+
+Fastest way: bulk add using Az Powershell    
+Get-Module Microsoft.Graph -ListAvailable
+az login  
+Get your tenant ID  
+$tenantId = (az account show --query tenantId -o tsv)  
+$tenantId  
+Find the users  
+$users = az rest --method GET --url "https://graph.microsoft.com/v1.0/users?`$filter=department eq 'Software Engineering'&`$select=id,displayName,userPrincipalName,department&`$top=999" | ConvertFrom-Json  
+$users.value.  Count  
+See the users  
+$users.value | Select-Object displayName,userPrincipalName  
+
+Find the Software Engineering group  
+$groups = az rest --method GET --url "https://graph.microsoft.com/v1.0/groups?`$filter=displayName eq 'Software Engineering'&`$select=id,displayName"  
+($groups | ConvertFrom-Json).value  
+Group Object ID #  
+save it  
+$groupId = (($groups | ConvertFrom-Json).value | Select-Object -First 1).id  
+Check:  
+$groupId  
+
+foreach ($user in $users.value) {
+    $body = @{
+        "@odata.id" = "https://graph.microsoft.com/v1.0/directoryObjects/$($user.id)"
+    } | ConvertTo-Json
+
+    az rest `
+        --method POST `
+        --url "https://graph.microsoft.com/v1.0/groups/$groupId/members/`$ref" `
+        --headers "Content-Type=application/json" `
+        --body $body
+}
+
