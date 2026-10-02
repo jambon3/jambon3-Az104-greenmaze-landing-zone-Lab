@@ -3,7 +3,6 @@
 GUI 
 Entra - Users - New user - 
 Microsoft Entra ID
-
 ```text
 │
 └── Users
@@ -13,7 +12,6 @@ Microsoft Entra ID
         ├── Create new user
         │
         └── Invite external user
-
 ```
 Display Name: The user's friendly, full name as it appears in the organization's directory .   
 
@@ -21,3 +19,6 @@ Principal Name (User Principal Name / UPN): The unique sign-in identifier and em
 
 ![alt text](create-user.png)
 
+<img src="create-user.png" alt="alt text" width="600">
+
+<img src="create-user.png" alt="alt text" width="400">
