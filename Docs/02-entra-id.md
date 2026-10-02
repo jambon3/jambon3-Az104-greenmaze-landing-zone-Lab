@@ -1,11 +1,11 @@
-## Greenmaze Technologies
+# Greenmaze Technologies
 
 GreenMaze Technologies is a fictional B2B software and technology company that develops and operates cloud-based applications for businesses.
 The company provides a SaaS platform that helps organizations manage training, operations, analytics, and connected devices. Its applications are hosted primarily in Microsoft Azure and are accessed by customers through the internet.
 
-# What GreenMaze actually has
+## What GreenMaze actually has
 
-# 300 employees
+## 300 employees
 
 Department	                Employees	    Purpose
 Software Engineering	        75	        Develops and maintains GreenMaze's applications, APIs, and services
@@ -23,8 +23,8 @@ Legal & Compliance	             5	        Contracts, privacy, regulatory and leg
 Executive Leadership	         8	        CEO, CTO, CIO, CFO, COO and senior leadership
 Facilities & Administration	    10	        Office operations, facilities, administration
 
-# Organizational structure
-
+## Organizational structure
+'''text
 GreenMaze Technologies
 │
 ├── Executive Leadership — 8
@@ -47,4 +47,4 @@ GreenMaze Technologies
     ├── Human Resources — 10
     ├── Legal & Compliance — 5
     └── Facilities & Administration — 10
-
+'''
