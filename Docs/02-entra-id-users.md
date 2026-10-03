@@ -93,7 +93,7 @@ Microsoft Entra admin center → Entra ID → Users → Bulk operations → Bulk
 1. To download Microsoft's CSV template > Bulk create → Download  
  → Entra ID → Users → Bulk operations → Bulk create → Upload → submit
 
-The important required fields are: User's display name, User principal name = login, password, Block sign in
+***The important required fields are: User's display name, User principal name = login, password, Block sign in
 
 My group membership type is Assigned because I dont have P1, P2 licence.
 
@@ -130,3 +130,24 @@ foreach ($user in $users.value) {
         --body $body
 }
 
+## Add user to Security Group cybersecurity portal bulk import  
+In the Entra admin center, go to Groups → New group.  
+Group type: Security  
+Name: Cybersecurity  
+Membership type: Assigned  
+Click Create. Skip this step if the group already exists.
+
+Open the group, then Members → Bulk operations → Import members.  
+Upload ImportGroupMembers_Cybersecurity.csv and click Submit.
+
+## or PowerShell in Azure Cloud Shell
+Connect-MgGraph -Scopes "Group.ReadWrite.All","User.Read.All"
+
+# Create the group (Assigned is the default) - skip if it already exists
+$g = New-MgGroup -DisplayName "Cybersecurity" -MailEnabled:$false -SecurityEnabled -MailNickname "Cybersecurity"
+
+# Add the 15 users
+Get-Content ./ImportGroupMembers_Cybersecurity.csv | Select-Object -Skip 1 | ForEach-Object {
+  $u = Get-MgUser -UserId $_.Trim()
+  New-MgGroupMember -GroupId $g.Id -DirectoryObjectId $u.Id
+}
