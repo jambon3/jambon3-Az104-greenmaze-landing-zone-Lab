@@ -1,0 +1,11 @@
+﻿Name [displayName] Required,User name [userPrincipalName] Required,Initial password [passwordProfile] Required,Account enabled (true/false) [accountEnabled],First name [givenName],Last name [surname],Job title [jobTitle],Department [department],Usage location [usageLocation],Street address [streetAddress],State or province [state],Country or region [country],Office [officeLocation],City [city],ZIP or postal code [postalCode],Business phone [businessPhones],Mobile phone [mobilePhone]
+Gilles Turgeon,gilles.turgeon@dkrin3gmail.onmicrosoft.com,Faci#5026!Fc120h,true,Gilles,Turgeon,Director of Facilities & Administration,Facilities & Administration,CA,,QC,Canada,,Montreal,H3B 2Y5,,
+Deborah Hutchinson,deborah.hutchinson@dkrin3gmail.onmicrosoft.com,Faci#5027!Fc121h,true,Deborah,Hutchinson,Facilities Manager,Facilities & Administration,CA,,ON,Canada,,Toronto,M5H 2N2,,
+Carl Beaudry,carl.beaudry@dkrin3gmail.onmicrosoft.com,Faci#5028!Fc122h,true,Carl,Beaudry,Office Administrator,Facilities & Administration,CA,,QC,Canada,,Laval,H7T 2P5,,
+Manjit Sidhu,manjit.sidhu@dkrin3gmail.onmicrosoft.com,Faci#5029!Fc123h,true,Manjit,Sidhu,Workplace Services Coordinator,Facilities & Administration,CA,,BC,Canada,,Vancouver,V6C 3L6,,
+Lucie Pageau,lucie.pageau@dkrin3gmail.onmicrosoft.com,Faci#5030!Fc124h,true,Lucie,Pageau,Administrative Assistant,Facilities & Administration,CA,,QC,Canada,,Quebec City,G1R 5P9,,
+Warren Dalton,warren.dalton@dkrin3gmail.onmicrosoft.com,Faci#5031!Fc125h,true,Warren,Dalton,Building Maintenance Supervisor,Facilities & Administration,CA,,ON,Canada,,Ottawa,K1P 5G3,,
+Nancy Belisle,nancy.belisle@dkrin3gmail.onmicrosoft.com,Faci#5032!Fc126h,true,Nancy,Belisle,Receptionist,Facilities & Administration,CA,,QC,Canada,,Montreal,H3B 2Y5,,
+Craig Ferguson,craig.ferguson@dkrin3gmail.onmicrosoft.com,Faci#5033!Fc127h,true,Craig,Ferguson,Health & Safety Coordinator,Facilities & Administration,CA,,AB,Canada,,Calgary,T2P 3H7,,
+Diane Laurin,diane.laurin@dkrin3gmail.onmicrosoft.com,Faci#5034!Fc128h,true,Diane,Laurin,Procurement & Supplies Coordinator,Facilities & Administration,CA,,QC,Canada,,Laval,H7T 2P5,,
+Peter Nowak,peter.nowak@dkrin3gmail.onmicrosoft.com,Faci#5035!Fc129h,true,Peter,Nowak,Security & Access Coordinator,Facilities & Administration,CA,,NS,Canada,,Halifax,B3J 3R7,,

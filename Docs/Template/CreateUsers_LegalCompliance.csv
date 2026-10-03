@@ -1,0 +1,6 @@
+﻿Name [displayName] Required,User name [userPrincipalName] Required,Initial password [passwordProfile] Required,Account enabled (true/false) [accountEnabled],First name [givenName],Last name [surname],Job title [jobTitle],Department [department],Usage location [usageLocation],Street address [streetAddress],State or province [state],Country or region [country],Office [officeLocation],City [city],ZIP or postal code [postalCode],Business phone [businessPhones],Mobile phone [mobilePhone]
+Philippe Beauchamp,philippe.beauchamp@dkrin3gmail.onmicrosoft.com,Lega#4026!Lc110p,true,Philippe,Beauchamp,General Counsel,Legal & Compliance,CA,,QC,Canada,,Montreal,H3B 2Y5,,
+Eleanor Whitmore,eleanor.whitmore@dkrin3gmail.onmicrosoft.com,Lega#4027!Lc111p,true,Eleanor,Whitmore,Senior Legal Counsel,Legal & Compliance,CA,,ON,Canada,,Toronto,M5H 2N2,,
+Sophie Larivee,sophie.larivee@dkrin3gmail.onmicrosoft.com,Lega#4028!Lc112p,true,Sophie,Larivee,Compliance Manager,Legal & Compliance,CA,,QC,Canada,,Quebec City,G1R 5P9,,
+Rajesh Malhotra,rajesh.malhotra@dkrin3gmail.onmicrosoft.com,Lega#4029!Lc113p,true,Rajesh,Malhotra,Privacy & Data Protection Officer,Legal & Compliance,CA,,BC,Canada,,Vancouver,V6C 3L6,,
+Claire Montgomery,claire.montgomery@dkrin3gmail.onmicrosoft.com,Lega#4030!Lc114p,true,Claire,Montgomery,Paralegal,Legal & Compliance,CA,,ON,Canada,,Ottawa,K1P 5G3,,

@@ -1,0 +1,13 @@
+﻿Name [displayName] Required,User name [userPrincipalName] Required,Initial password [passwordProfile] Required,Account enabled (true/false) [accountEnabled],First name [givenName],Last name [surname],Job title [jobTitle],Department [department],Usage location [usageLocation],Street address [streetAddress],State or province [state],Country or region [country],Office [officeLocation],City [city],ZIP or postal code [postalCode],Business phone [businessPhones],Mobile phone [mobilePhone]
+Richard Lemaire,richard.lemaire@dkrin3gmail.onmicrosoft.com,Fina#1026!Fa90r,true,Richard,Lemaire,Chief Financial Officer,Finance & Accounting,CA,,QC,Canada,,Montreal,H3B 2Y5,,
+Susan Whitaker,susan.whitaker@dkrin3gmail.onmicrosoft.com,Fina#1027!Fa91r,true,Susan,Whitaker,Finance Director,Finance & Accounting,CA,,ON,Canada,,Toronto,M5H 2N2,,
+Isabelle Fournier,isabelle.fournier@dkrin3gmail.onmicrosoft.com,Fina#1028!Fa92r,true,Isabelle,Fournier,Controller,Finance & Accounting,CA,,QC,Canada,,Laval,H7T 2P5,,
+Harjit Randhawa,harjit.randhawa@dkrin3gmail.onmicrosoft.com,Fina#1029!Fa93r,true,Harjit,Randhawa,Senior Accountant,Finance & Accounting,CA,,BC,Canada,,Vancouver,V6C 3L6,,
+Denis Cyr,denis.cyr@dkrin3gmail.onmicrosoft.com,Fina#1030!Fa94r,true,Denis,Cyr,Accounts Payable Manager,Finance & Accounting,CA,,QC,Canada,,Quebec City,G1R 5P9,,
+Allison Grant,allison.grant@dkrin3gmail.onmicrosoft.com,Fina#1031!Fa95r,true,Allison,Grant,Accounts Receivable Specialist,Finance & Accounting,CA,,ON,Canada,,Ottawa,K1P 5G3,,
+Mathilde Dupuis,mathilde.dupuis@dkrin3gmail.onmicrosoft.com,Fina#1032!Fa96r,true,Mathilde,Dupuis,Financial Analyst,Finance & Accounting,CA,,QC,Canada,,Montreal,H3B 2Y5,,
+Kenneth Boyle,kenneth.boyle@dkrin3gmail.onmicrosoft.com,Fina#1033!Fa97r,true,Kenneth,Boyle,Payroll Specialist,Finance & Accounting,CA,,AB,Canada,,Calgary,T2P 3H7,,
+Annabelle Rochon,annabelle.rochon@dkrin3gmail.onmicrosoft.com,Fina#1034!Fa98r,true,Annabelle,Rochon,Tax Accountant,Finance & Accounting,CA,,QC,Canada,,Laval,H7T 2P5,,
+Vikram Joshi,vikram.joshi@dkrin3gmail.onmicrosoft.com,Fina#1035!Fa99r,true,Vikram,Joshi,FP&A Analyst,Finance & Accounting,CA,,ON,Canada,,Toronto,M5H 2N2,,
+Louise Bedard,louise.bedard@dkrin3gmail.onmicrosoft.com,Fina#1036!Fa100r,true,Louise,Bedard,Accounting Clerk,Finance & Accounting,CA,,QC,Canada,,Quebec City,G1R 5P9,,
+Patrick Doyle,patrick.doyle@dkrin3gmail.onmicrosoft.com,Fina#1037!Fa101r,true,Patrick,Doyle,Treasury Analyst,Finance & Accounting,CA,,NS,Canada,,Halifax,B3J 3R7,,
