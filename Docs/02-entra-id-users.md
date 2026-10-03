@@ -130,7 +130,7 @@ foreach ($user in $users.value) {
         --body $body
 }
 
-## Add user to Security Group cybersecurity portal bulk import  
+# Add user to Security Group cybersecurity portal bulk import  
 In the Entra admin center, go to Groups → New group.  
 Group type: Security  
 Name: Cybersecurity  
@@ -140,13 +140,13 @@ Click Create. Skip this step if the group already exists.
 Open the group, then Members → Bulk operations → Import members.  
 Upload ImportGroupMembers_Cybersecurity.csv and click Submit.
 
-## or PowerShell in Azure Cloud Shell
+# PowerShell in Azure Cloud Shell
 Connect-MgGraph -Scopes "Group.ReadWrite.All","User.Read.All"
 
-# Create the group (Assigned is the default) - skip if it already exists
+## Create the group (Assigned is the default) - skip if it already exists
 $g = New-MgGroup -DisplayName "Cybersecurity" -MailEnabled:$false -SecurityEnabled -MailNickname "Cybersecurity"
 
-# Add the 15 users
+## Add the 15 users
 Get-Content ./ImportGroupMembers_Cybersecurity.csv | Select-Object -Skip 1 | ForEach-Object {
   $u = Get-MgUser -UserId $_.Trim()
   New-MgGroupMember -GroupId $g.Id -DirectoryObjectId $u.Id
