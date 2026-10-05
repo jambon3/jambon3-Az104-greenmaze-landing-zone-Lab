@@ -3,7 +3,7 @@
 
 For your GreenMaze Azure foundation, you can eventually expand it to:
 MS Entra tenant and Azure Tenant is the same Tenant.
-
+```text
 Microsoft Entra Tenant
 │
 ├── Users
@@ -30,7 +30,7 @@ Azure Tenant
             │   ├── Storage
             │   ├── VNets
             │   └── NSGs
-
+```
 Your Entra tenant is the identity directory associated with this Azure environment; it isn't another level in the Azure resource hierarchy.  
 
 Management Groups are important because they sit above Azure subscriptions and let you manage many subscriptions together.
