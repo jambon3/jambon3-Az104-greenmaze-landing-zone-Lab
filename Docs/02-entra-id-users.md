@@ -54,7 +54,7 @@ Microsoft Entra ID
                        based on device attributes/rules.
 ```  
 ## Group type  
-Security groups are commonly used for access management.
+Security groups are commonly used for access management.  
 Microsoft 365 are used mainly for collaboration. Provides shared resources such as Outlook, SharePoint, Planner, etc.
 
 Select New group. 
@@ -97,27 +97,32 @@ Microsoft Entra admin center → Entra ID → Users → Bulk operations → Bulk
 
 My group membership type is Assigned because I dont have P1, P2 licence.
 
-Fastest way: bulk add using Az Powershell    
-Get-Module Microsoft.Graph -ListAvailable
+Add bulk user to group using Az Powershell    
 az login  
+Get-Module Microsoft.Graph -ListAvailable
+ 
 Get your tenant ID  
 $tenantId = (az account show --query tenantId -o tsv)  
-$tenantId  
+$tenantId
+
 Find the users  
 $users = az rest --method GET --url "https://graph.microsoft.com/v1.0/users?`$filter=department eq 'Software Engineering'&`$select=id,displayName,userPrincipalName,department&`$top=999" | ConvertFrom-Json  
-$users.value.  Count  
+$users.value.  Count
+
 See the users  
-$users.value | Select-Object displayName,userPrincipalName  
+$users.value | Select-Object displayName,userPrincipalName
 
 Find the Software Engineering group  
 $groups = az rest --method GET --url "https://graph.microsoft.com/v1.0/groups?`$filter=displayName eq 'Software Engineering'&`$select=id,displayName"  
-($groups | ConvertFrom-Json).value  
-Group Object ID #  
-save it  
-$groupId = (($groups | ConvertFrom-Json).value | Select-Object -First 1).id  
-Check:  
-$groupId  
+($groups | ConvertFrom-Json).value
 
+Group Object ID #  
+save it
+
+$groupId = (($groups | ConvertFrom-Json).value | Select-Object -First 1).id  
+$groupId
+
+Your loop stays exactly like this  
 foreach ($user in $users.value) {
     $body = @{
         "@odata.id" = "https://graph.microsoft.com/v1.0/directoryObjects/$($user.id)"
