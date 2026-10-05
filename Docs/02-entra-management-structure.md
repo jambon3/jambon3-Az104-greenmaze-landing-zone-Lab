@@ -60,3 +60,13 @@ Then you can apply Azure Policy or RBAC at the Management Group level. The setti
 ## Management Groups are useful for Policy
 
 This is the most important reason to understand them.
+This is another important distinction.
+
+You still need subscriptions for things like:
+Billing  
+Resource deployment  
+Resource quotas/limits  
+Access boundaries  
+Separating environments  
+
+Management Groups are primarily an organizational and governance layer above subscriptions.
