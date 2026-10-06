@@ -156,3 +156,29 @@ Get-Content ./ImportGroupMembers_Cybersecurity.csv | Select-Object -Skip 1 | For
   $u = Get-MgUser -UserId $_.Trim()
   New-MgGroupMember -GroupId $g.Id -DirectoryObjectId $u.Id
 }
+
+
+# I did security groups so do i still need to do management group
+Yes, you may still need management groups because they do a completely different job than security groups.
+• Security groups (in Microsoft Entra ID) organize users and devices to control who has access to specific applications, data, or individual resources.
+• Management groups (in Azure) organize multiple Azure subscriptions (billing and container boundaries) to control governance, compliance, and policies at scale.
+
+• Security Groups (The "Who"): A security group (like a Microsoft Entra ID group) acts as a security principal. You assign an RBAC role to a security group so that all users inside that group inherit the permissions, which makes managing users much easier than assigning permissions individually.
+• Management Groups (The "Where" / Scope): A management group is a scope level used to organize multiple subscriptions. When you assign a role to a security group at the management group level, those permissions automatically apply downward to all child management groups, subscriptions, and resource groups inside that hierarchy.
+
+
+## Microsoft Entra Self-Service Password Reset (SSPR).
+This is the feature that lets a user say “I forgot my password” and reset it themselves without calling IT.  
+In the Azure / Microsoft Entra admin center:  
+Entra ID → Password reset → Properties
+
+Self service password reset enabled
+
+None — nobody can use SSPR
+Selected — only a specific group
+All — everyone in the tenant
+
+Microsoft recommends starting with a test group before enabling it broadly.
+***Microsoft's current documentation says Microsoft Entra ID P1 is required for password reset in the Entra ID configuration shown in the tutorial.
+
+GreenMaze were a hybrid environment with on-premises Active Directory, there's another concept you'll want to learn: password writeback. That allows a password reset performed through Entra SSPR to be written back to on-prem AD.

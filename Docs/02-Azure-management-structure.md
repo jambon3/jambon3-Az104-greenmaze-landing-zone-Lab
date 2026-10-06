@@ -53,27 +53,7 @@ Tenant Root Group
      │    └── Online
      │
      └── Sandbox
-```
-## Management Groups are useful for Policy
 
-``` text
-Tenant Root Group
-│
-└── GreenMaze
-     │
-     ├── Platform
-     │
-     │    ├── Management
-     │    ├── Connectivity
-     │    └── Identity
-     │
-     ├── Landing Zones
-     │
-     │    ├── Corp
-     │    └── Online
-     │
-     └── Sandbox
-```
 Think of the Management Groups as governance boundaries, not departments.  
 
 Microsoft specifically recommends keeping management-group hierarchies reasonably flat and says not to create management groups specifically for production, testing, and development environments; those environments can instead be separated by subscriptions under an appropriate management group.
@@ -85,14 +65,13 @@ Best Practice: Microsoft recommends keeping the hierarchy flat (3 to 4 levels de
 ## 1. GreenMaze — Parent Management Group
 
 Purpose: The overall governance container for GreenMaze.
-
-Put policies here that should apply broadly across GreenMaze.
+Put policies here that should apply broadly across GreenMaze.  
 For example:  
-Allowed Azure regions
-Required tags
-Security baseline
-Logging requirements
-General governance
+Allowed Azure regions  
+Required tags  
+Security baseline  
+Logging requirements  
+General governance  
 
 ## 2. Platform
 
@@ -104,7 +83,7 @@ Platform
 ├── Connectivity
 └── Identity
 ```
-Management  
+Management: 
 Central management services such as:  
 Azure Monitor  
 Log Analytics  
@@ -121,7 +100,7 @@ ExpressRoute
 DNS  
 Network connectivity  
 
-Identity    
+Identity:   
 Central identity-related infrastructure where applicable.  
 
 Microsoft's platform landing zone concept provides centralized capabilities that application teams consume.  
@@ -163,25 +142,20 @@ Public-facing applications.
 
 ## Sanbox
 A sandbox is specifically for experimentation, proof-of-concepts and learning.
-
+```text
+Sandbox Management Group
+        │
+        ▼
+Sandbox Subscription
+        │
+        ├── Test VM
+        ├── Test Storage
+        ├── Test VNet
+        ├── Bicep experiments
+        └── AZ-104 labs
+```
 Microsoft recommends putting sandbox subscriptions under a sandbox management group with less restrictive policies than production workloads.
 
+<img src="image/management-group.png" alt="Create User" width="600">management-group
 
 
-
-You still need subscriptions for things like:
-Billing  
-Resource deployment  
-Resource quotas/limits  
-Access boundaries  
-Separating environments  
-
-
-
-i did security groups so do i still need to do management group
-Yes, you may still need management groups because they do a completely different job than security groups.
-• Security groups (in Microsoft Entra ID) organize users and devices to control who has access to specific applications, data, or individual resources.
-• Management groups (in Azure) organize multiple Azure subscriptions (billing and container boundaries) to control governance, compliance, and policies at scale.
-
-• Security Groups (The "Who"): A security group (like a Microsoft Entra ID group) acts as a security principal. You assign an RBAC role to a security group so that all users inside that group inherit the permissions, which makes managing users much easier than assigning permissions individually.
-• Management Groups (The "Where" / Scope): A management group is a scope level used to organize multiple subscriptions. When you assign a role to a security group at the management group level, those permissions automatically apply downward to all child management groups, subscriptions, and resource groups inside that hierarchy.
