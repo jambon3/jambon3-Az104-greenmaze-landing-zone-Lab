@@ -156,6 +156,21 @@ Sandbox Subscription
 ```
 Microsoft recommends putting sandbox subscriptions under a sandbox management group with less restrictive policies than production workloads.
 
-<img src="image/management-group.png" alt="Create User" width="600">management-group
+<img src="image/management-group.png" alt="Create User" width="600">
 
 
+## Management group vs subscription
+
+```text
+Management Group	Subscription
+Governance boundary	Resource/admin/billing boundary
+Contains subscriptions	Contains resources
+Can contain child MGs	Contains Resource Groups
+Policy can be applied	Policy can be applied
+RBAC can be applied	RBAC can be applied
+No resources directly	Resources ultimately live here
+Organizes governance	Organizes Azure resources/cost
+```
+## Management Groups are not mandatory for every Azure deployment
+This is another good exam concept.  
+You can have a subscription without creating a complicated management-group hierarchy. Management groups become particularly useful when an organization has multiple subscriptions and wants centralized governance.
