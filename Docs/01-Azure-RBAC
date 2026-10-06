@@ -1,6 +1,6 @@
 # Azure RBAC (Role-Based Access Control)
 Azure RBAC controls who can do what to Azure resources, and at what scope.
-### Who + What + Where
+# Who + What + Where
 
 Every Azure RBAC assignment has three fundamental parts:
 ```text
@@ -10,7 +10,7 @@ Security Principal
         +
       Scope
 ```
-### WHO?
+## WHO?
 Security Principal = Who receives the permission? 
 Examples:  
 User  
@@ -23,7 +23,7 @@ Software Engineering Group
 Cybersecurity Group  
 IT & Cloud Infrastructure Group  
 
-### what
+## what
 Role = WHAT can they do?  
 Examples:  
 Owner  
@@ -38,7 +38,7 @@ User Access Administrator
 
 The role determines what actions the principal can perform.
 
-### Scope = WHERE?
+## Scope = WHERE?
 A role can be assigned at:  
 ```text
 Management Group
@@ -59,7 +59,7 @@ Contributor / Can manage Azure resources. Contributor cannot grant other people 
 Owner  / Manage resources & Manage access
 
 
-### User Access Administrator
+## User Access Administrator
 Its purpose is primarily to manage access to Azure resources.
 ```text
 Contributor
