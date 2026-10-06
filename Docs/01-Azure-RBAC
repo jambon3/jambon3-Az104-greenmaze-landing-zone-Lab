@@ -83,30 +83,26 @@ Azure RBAC: Owner, Contributor, Reader, Virtual Machine Contributor, Network Con
 RBAC: Who can do something?  
 Azure Policy: What is allowed or required?
 
-Azure RBAC vs Locks
+## Azure RBAC vs Locks
 
-And then you have resource locks.
 
-RBAC
+RBAC  
 ↓
-Who can perform actions?
+Who can perform actions?  
 
-Policy
+Policy  
+↓ 
+What configurations are allowed?  
+
+Lock  
 ↓
-What configurations are allowed?
+Prevent accidental modification/deletion  
 
-Lock
-↓
-Prevent accidental modification/deletion
+These three work together.  
 
-These three work together.
-
-13. Group-based RBAC
-
-For your GreenMaze lab, don't assign permissions individually whenever possible.
-
-Instead:
-
+## Group-based RBAC  
+Don't assign permissions individually whenever possible.  
+Instead:  
 Users
 │
 ├── David
@@ -123,19 +119,14 @@ Contributor
        ▼
 rg-application
 
-This is much easier to manage.
-
-If Sarah leaves the department:
-
-Remove Sarah from group
+This is much easier to manage.  
+If Sarah leaves the department: Remove Sarah from group  
 
 You don't have to hunt through Azure RBAC assignments and remove her individually everywhere.
 
-14. Multiple RBAC assignments
-
-A user can receive permissions from multiple places.
-
-For example:
+Multiple RBAC assignments  
+A user can receive permissions from multiple places.  
+For example:  
 
 David
 │
@@ -153,11 +144,10 @@ throughout the subscription and:
 
 Contributor
 
-within rg-compute.
-
+within rg-compute.  
 The more specific scope gives additional permissions there.
 
-15. Azure RBAC does NOT work like traditional NTFS permissions
+Azure RBAC does NOT work like traditional NTFS permissions
 
 This is another useful mental distinction.
 
@@ -178,26 +168,8 @@ Principal
 Role
 +
 Scope
-16. The four scopes you need to know
 
-Memorize this:
-
-Management Group
-       ↓
-Subscription
-       ↓
-Resource Group
-       ↓
-Resource
-
-And understand:
-
-The higher the scope, the broader the potential access.
-
-17. Your GreenMaze example
-
-You could eventually design something like:
-
+```text
 GreenMaze
 │
 ├── Platform
@@ -229,34 +201,8 @@ GreenMaze
         │
         └── AZ-104 Lab Users
                 └── Contributor
-
+```
 This demonstrates RBAC + management groups + subscriptions + resource groups all working together.
-
-What you need to know for AZ-104
-
-I'd make your RBAC checklist:
-
-Must understand
- What Azure RBAC is
- Security principal
- Role
- Scope
- Management Group scope
- Subscription scope
- Resource Group scope
- Resource scope
- RBAC inheritance
- Reader
- Contributor
- Owner
- User Access Administrator
- Least privilege
- Group-based RBAC
- Azure RBAC vs Entra roles
- Azure RBAC vs Azure Policy
- Multiple role assignments
- Role assignment vs role definition
-The single sentence to remember
 
 Azure RBAC determines who can perform which actions on Azure resources at a specific scope.
 
