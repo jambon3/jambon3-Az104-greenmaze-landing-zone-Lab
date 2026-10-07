@@ -1,0 +1,1 @@
+ Microsoft recommends including components such as resource type, workload/project, environment, region, and instance number, while remembering that each Azure resource type has its own naming restrictions.
