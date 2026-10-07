@@ -1,6 +1,8 @@
 ## Subscriptions
 An Azure subscription is a container that Azure uses to organize and manage resources.  
 
+<img src="image/Subsc.png" alt="Create User" width="600">
+
 You still need subscriptions for things like:  
 Billing  
 Resource deployment  
@@ -75,4 +77,4 @@ Microsoft Entra roles:
 Global Administrator  
 User Administrator  
 Groups Administrator  
-<img src="image/Subsc.png" alt="Create User" width="600">
+
