@@ -1,6 +1,7 @@
 ## resource group 
-A Resource Group is a container that lets you organize and manage related Azure resources.
-<img src="resource-group.png" alt="Create User" width="600">
+A Resource Group is a container that lets you organize and manage related Azure resources.  
+<img src= "image/resource-group.png" alt="Create User" width="600">
+
 ```text
 Microsoft Entra Tenant
 │
