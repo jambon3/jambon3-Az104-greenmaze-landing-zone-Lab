@@ -75,3 +75,4 @@ Microsoft Entra roles:
 Global Administrator  
 User Administrator  
 Groups Administrator  
+<img src="image/Subsc.png" alt="Create User" width="600">
