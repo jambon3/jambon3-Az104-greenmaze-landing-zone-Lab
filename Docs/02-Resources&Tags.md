@@ -71,3 +71,46 @@ Different resource types have different properties, dependencies, configuration 
 Resources can also depend on other resources. For example, a virtual machine commonly uses a network interface, virtual network, subnet, network security group, public IP address, and managed disk.
 
 Understanding resource types is important because Azure administrators need to know what resources are being deployed, how they interact with each other, and how they should be organized and managed within resource groups and subscriptions.
+
+# Tags
+Microsoft describes them as key-value metadata used to identify and organize Azure resources. For example: Environment = Production.
+
+
+### Common Tags
+
+Environment = Development
+Workload = Perforce
+Department = IT
+Owner = IT
+CostCenter = IT
+Project = GreenMaze
+
+### Where Can Tags Be Applied?
+- Subscriptions
+- Resource Groups
+- Resources
+- Not Management Groups
+
+### Tag Inheritance
+- Tags aren't automatically inherited
+- Azure Policy can enforce/inherit tags
+- Cost Management has separate tag inheritance
+
+### Tags and Cost Management
+- Group costs
+- Identify ownership
+- Track departments/projects/environments
+
+### Tags and Azure Policy
+- Require tags
+- Require specific tag values
+- Add/inherit tags
+
+### Tag Limitations
+- Not all resources support tags
+- Tag limits
+- Naming restrictions
+
+### Security Consideration
+- Tags are plain text
+- Never store secrets
