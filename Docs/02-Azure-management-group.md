@@ -53,7 +53,7 @@ Tenant Root Group
      │    └── Online
      │
      └── Sandbox
-
+```
 Think of the Management Groups as governance boundaries, not departments.  
 
 Microsoft specifically recommends keeping management-group hierarchies reasonably flat and says not to create management groups specifically for production, testing, and development environments; those environments can instead be separated by subscriptions under an appropriate management group.
