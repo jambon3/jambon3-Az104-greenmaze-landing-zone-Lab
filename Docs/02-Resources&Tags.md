@@ -1,3 +1,4 @@
+ # Resource
   A resource is an individual Azure service that you deploy inside a resource group. A resource cannot exist independently of a resource group.  
 
   when naming resources, Microsoft recommends including components such as resource type, workload/project, environment, region, and instance number, while remembering that each Azure resource type has its own naming restrictions.  
