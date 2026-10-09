@@ -61,6 +61,7 @@ Low-latency workload
 
 Azure Storage redundancy means keeping multiple copies of your data so it can survive hardware failures, data-center outages, or regional disasters. The option you choose affects cost, availability, and disaster recovery.   
 - LRS — Locally Redundant Storage   
+<img src="LRS.jpg" alt="Create User" width="600">
 Stores three copies of your data within a single physical data center in the primary region.  
 Protects against drive and server failures.  
 Doesn't protect adequately against a data-center disaster.  
@@ -97,18 +98,18 @@ Allows reads from the secondary region without failover.
 Combines zone resilience, geographic resilience, and secondary read access.  
 
 And remember: GRS and GZRS replicate to the secondary asynchronously, so the secondary may not contain the latest writes when a disaster occurs. Redundancy alone also doesn't protect you from accidental deletions or malicious changes.
-### Storage Endpoints
 
 ## Storage Security
 Azure Storage security is about controlling who can access your data, how they connect to it, and how the data is protected.
 
 Access Keys and Key Rotation
 A storage account has two access keys, named key1 and key2. They are powerful credentials that can authorize requests to data across the storage account using Shared Key authorization. example:  
-
+```text
 Storage Account: stgdev01
         │
         ├── key1
-        └── key2  
+        └── key2
+```  
 Think of each key as a master credential. Anyone who obtains one may be able to access the account's data, so don't embed keys in source code or store them in plain text. They allow you to rotate credentials without interrupting your applications.  
 Key rotation example  
 Your application currently uses key1.   
@@ -131,13 +132,13 @@ Service SAS     Delegates access to a specific storage service/resource
 Account SAS	    Can delegate access across supported services in the account  
 
 Service SAS and account SAS are signed using the account key. User delegation SAS uses Microsoft Entra credentials. 
-    Remember: A SAS is a bearer credential. Anyone who obtains the URL may be able to use it within its permissions and validity period. Keep permissions narrow and expiry short.
+    Remember: A SAS is a bearer credential. Anyone who obtains the URL may be able to use it within its permissions and validity period. Keep permissions narrow and expiry short.  
 Storage Firewalls and Virtual Network Rules
 
 Storage firewalls control where network connections to the public endpoint may originate.
 
 For example, GreenMaze might allow access only from its office's public IP address or selected Azure virtual network subnets.
-
+```text
 Office IP ──────────┐
                     ▼
               Storage Firewall
@@ -146,7 +147,7 @@ Office IP ──────────┐
              Storage Account
 
 Unknown IP ──X──> Blocked
-
+```
 You can configure network rules to allow selected IP addresses, virtual networks using supported network configurations, and certain trusted Azure services or resource instances.
 
 Important: being allowed by the firewall does not grant data permissions. The user or application must still authenticate and be authorized. 
