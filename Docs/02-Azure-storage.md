@@ -75,7 +75,7 @@ Data remains available for reads and writes during a zone outage, subject to ser
 Doesn't protect against a complete regional outage.  
 
 - GRS — Geo-Redundant Storage  
-<img src="image/GRS.jpg" alt="GRS" width="400">
+<img src="image/GRS.jpg" alt="GRS" width="600">
 Keeps redundant copies in the primary region and asynchronously replicates data to a secondary geographic region.  
 Protects against a regional disaster.  
 The secondary copy isn't directly readable during normal operation.  
@@ -107,7 +107,7 @@ And remember: GRS and GZRS replicate to the secondary asynchronously, so the sec
 ## Storage Security
 Azure Storage security is about controlling who can access your data, how they connect to it, and how the data is protected.
 
-Access Keys and Key Rotation
+### Access Keys and Key Rotation
 A storage account has two access keys, named key1 and key2. They are powerful credentials that can authorize requests to data across the storage account using Shared Key authorization. example:  
 ```text
 Storage Account: stgdev01
@@ -115,14 +115,14 @@ Storage Account: stgdev01
         ├── key1
         └── key2
 ```  
-Think of each key as a master credential. Anyone who obtains one may be able to access the account's data, so don't embed keys in source code or store them in plain text. They allow you to rotate credentials without interrupting your applications.  
-Key rotation example  
+Think of each key as a master credential. Anyone who obtains one may be able to access the account's data, so don't embed keys in source code or store them in plain text. They allow you to rotate credentials without interrupting your applications. Key rotation example:  
+
 Your application currently uses key1.   
 Update the application to use key2 and verify that it works.  
 Regenerate key1 to invalidate the old key.  
 When needed, repeat the process in reverse to rotate key2.  
  
-Shared Access Signatures (SAS)  
+### Shared Access Signatures (SAS)  
 For example, you want a customer to download one PDF without giving them your storage account key.  
 You can create a SAS that permits:  
 One specific blob  
@@ -131,15 +131,16 @@ Access until a specified expiry time
 HTTPS connections only  
 The customer can then use the SAS URL without receiving your account key.  
 
-There are three SAS types:  
-User delegation SAS     Signed using Microsoft Entra credentials; preferred for Blob Storage when SAS is needed  
-Service SAS     Delegates access to a specific storage service/resource  
-Account SAS	    Can delegate access across supported services in the account  
+### There are three SAS types:  
+User delegation SAS:     Signed using Microsoft Entra credentials; preferred for Blob Storage when SAS is needed  
+Service SAS:             Delegates access to a specific storage service/resource  
+Account SAS	:            Can delegate access across supported services in the account  
 
 Service SAS and account SAS are signed using the account key. User delegation SAS uses Microsoft Entra credentials. 
     Remember: A SAS is a bearer credential. Anyone who obtains the URL may be able to use it within its permissions and validity period. Keep permissions narrow and expiry short.  
-Storage Firewalls and Virtual Network Rules
 
+
+### Storage Firewalls and Virtual Network Rules
 Storage firewalls control where network connections to the public endpoint may originate.
 
 For example, GreenMaze might allow access only from its office's public IP address or selected Azure virtual network subnets.
@@ -155,33 +156,30 @@ Unknown IP ──X──> Blocked
 ```
 You can configure network rules to allow selected IP addresses, virtual networks using supported network configurations, and certain trusted Azure services or resource instances.
 
-Important: being allowed by the firewall does not grant data permissions. The user or application must still authenticate and be authorized. 
-Microsoft Learn
-+1
+***Important: being allowed by the firewall does not grant data permissions. The user or application must still authenticate and be authorized. 
 
-8.8.5 Private Endpoints
 
+### Private Endpoints
 A private endpoint connects a supported storage service to a private IP address in your Azure virtual network using Azure Private Link.
+Instead of relying on a publicly accessible endpoint, your Azure VM can connect to the storage service privately. More explanation: Think of a Private Endpoint as a private door between your Azure VM and your Azure Storage Account. Instead of accessing storage through its public IP address, your VM connects through a private IP address inside your Azure network.
 
-Instead of relying on a publicly accessible endpoint, your Azure VM can connect to the storage service privately.
+Without a Private Endpoint  
+<img src="no-pvt-endpoint.png" alt="no-pvt-endpoint" width="600"> 
+Your VM accesses Azure Storage using its normal storage hostname, such as: greenmazestorage.blob.core.windows.net  
+Without a Private Endpoint, the connection normally uses the storage account's public endpoint. Access still depends on authentication and the storage account's network rules.  
 
-GreenMaze Virtual Network
 
-VM: 10.0.1.4
+With a Private Endpoint  
+Now you create a Private Endpoint in your Azure virtual network.  
+<img src="pvt-endpoint.png" alt="pvt-endpoint" width="600"> 
+What happens:  
+1. Your VM wants to access a file in Blob Storage.   A Private Endpoint does not automatically disable public access.
+2. DNS resolves the storage hostname to the Private Endpoint IP, 10.0.2.5.  DNS must resolve the correct IP address.
+3. The VM sends its traffic through the private connection.  
+4. Azure Private Link carries the traffic to the storage service.  
+The Storage Account doesn't need its own IP address inside your VNet. The Private Endpoint provides the private IP that your VM connects to.  
 
-Private Endpoint
-
-Private IP: 10.0.2.5
-
-Azure Storage Account
-
-Blob service, for example
-
-A private endpoint does not automatically disable the storage account's public endpoint. If you want private-only access, configure public network access and firewall settings accordingly. DNS must also resolve the storage service's hostname to the appropriate private endpoint IP. 
-Microsoft Learn
-+1
-
-Firewall vs. Private Endpoint
+### Firewall vs. Private Endpoint
 
 Firewall: Restricts which sources can reach the public endpoint.
 
