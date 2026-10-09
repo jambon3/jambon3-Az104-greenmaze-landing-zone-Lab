@@ -82,21 +82,21 @@ The secondary copy isn't directly readable during normal operation.
 A failover is required to use the secondary region as the primary.  
 
 - GZRS — Geo-Zone-Redundant Storage  
-<img src="image/GZRS.jpg" alt="GZRS" width="400">  
+<img src="image/GZRS.jpg" alt="GZRS" width="600">  
 Combines ZRS in the primary region with asynchronous replication to a secondary region.  
 Protects against an availability-zone outage.  
 Also protects against a regional disaster.  
 The secondary copy isn't directly readable until failover.  
 
 - RA-GRS — Read-Access Geo-Redundant Storage
-<img src="image/RA-GRS.jpg" alt="RA-GRS" width="400">  
+<img src="image/RA-GRS.jpg" alt="RA-GRS" width="600">  
 Provides GRS plus read access to the secondary region.  
 Applications can read from the secondary without waiting for a failover.  
 The secondary copy is asynchronously replicated and can lag behind the primary.  
 Read access doesn't mean you can normally write to the secondary.  
 
 - RA-GZRS — Read-Access Geo-Zone-Redundant Storage 
-<img src="image/RA-gzrs.jpg" alt="RA-gzrs" width="400"> 
+<img src="image/RA-gzrs.jpg" alt="RA-gzrs" width="600"> 
 Provides GZRS plus read access to the secondary region.  
 Protects against zone and regional outages.  
 Allows reads from the secondary region without failover.  
