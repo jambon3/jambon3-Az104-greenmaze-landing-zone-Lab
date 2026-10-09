@@ -61,37 +61,42 @@ Low-latency workload
 
 Azure Storage redundancy means keeping multiple copies of your data so it can survive hardware failures, data-center outages, or regional disasters. The option you choose affects cost, availability, and disaster recovery.   
 - LRS — Locally Redundant Storage   
-<img src="image/LRS.jpg" alt="LRS" width="600">
+<img src="image/LRS.jpg" alt="LRS" width="400">
 Stores three copies of your data within a single physical data center in the primary region.  
 Protects against drive and server failures.  
 Doesn't protect adequately against a data-center disaster.  
 Best for data that can be recreated or where lower cost is the priority.   
 
 - ZRS — Zone-Redundant Storage  
+<img src="image/ZRS.jpg" alt="ZRS" width="400">
 Replicates data synchronously across separate availability zones within the same region.  
 Protects against an availability-zone outage.  
 Data remains available for reads and writes during a zone outage, subject to service recovery.  
 Doesn't protect against a complete regional outage.  
 
 - GRS — Geo-Redundant Storage  
+<img src="image/GRS.jpg" alt="GRS" width="400">
 Keeps redundant copies in the primary region and asynchronously replicates data to a secondary geographic region.  
 Protects against a regional disaster.  
 The secondary copy isn't directly readable during normal operation.  
 A failover is required to use the secondary region as the primary.  
 
-- GZRS — Geo-Zone-Redundant Storage    
+- GZRS — Geo-Zone-Redundant Storage  
+<img src="image/GZRS.jpg" alt="GZRS" width="400">  
 Combines ZRS in the primary region with asynchronous replication to a secondary region.  
 Protects against an availability-zone outage.  
 Also protects against a regional disaster.  
 The secondary copy isn't directly readable until failover.  
 
-- RA-GRS — Read-Access Geo-Redundant Storage  
+- RA-GRS — Read-Access Geo-Redundant Storage
+<img src="image/RA-GRS.jpg" alt="RA-GRS" width="400">  
 Provides GRS plus read access to the secondary region.  
 Applications can read from the secondary without waiting for a failover.  
 The secondary copy is asynchronously replicated and can lag behind the primary.  
 Read access doesn't mean you can normally write to the secondary.  
 
-- RA-GZRS — Read-Access Geo-Zone-Redundant Storage  
+- RA-GZRS — Read-Access Geo-Zone-Redundant Storage 
+<img src="image/RA-gzrs.jpg" alt="RA-gzrs" width="400"> 
 Provides GZRS plus read access to the secondary region.  
 Protects against zone and regional outages.  
 Allows reads from the secondary region without failover.  
