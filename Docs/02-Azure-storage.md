@@ -61,7 +61,7 @@ Low-latency workload
 
 Azure Storage redundancy means keeping multiple copies of your data so it can survive hardware failures, data-center outages, or regional disasters. The option you choose affects cost, availability, and disaster recovery.   
 - LRS — Locally Redundant Storage   
-<img src="LRS.jpg" alt="Create User" width="600">
+<img src="image/LRS.jpg" alt="LRS" width="600">
 Stores three copies of your data within a single physical data center in the primary region.  
 Protects against drive and server failures.  
 Doesn't protect adequately against a data-center disaster.  
