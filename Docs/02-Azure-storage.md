@@ -164,14 +164,14 @@ A private endpoint connects a supported storage service to a private IP address 
 Instead of relying on a publicly accessible endpoint, your Azure VM can connect to the storage service privately. More explanation: Think of a Private Endpoint as a private door between your Azure VM and your Azure Storage Account. Instead of accessing storage through its public IP address, your VM connects through a private IP address inside your Azure network.
 
 Without a Private Endpoint  
-<img src="no-pvt-endpoint.png" alt="no-pvt-endpoint" width="600"> 
+<img src="image/no-pvt-endpoint.png" alt="no-pvt-endpoint" width="600"> 
 Your VM accesses Azure Storage using its normal storage hostname, such as: greenmazestorage.blob.core.windows.net  
 Without a Private Endpoint, the connection normally uses the storage account's public endpoint. Access still depends on authentication and the storage account's network rules.  
 
 
 With a Private Endpoint  
 Now you create a Private Endpoint in your Azure virtual network.  
-<img src="pvt-endpoint.png" alt="pvt-endpoint" width="600"> 
+<img src="image/pvt-endpoint.png" alt="pvt-endpoint" width="600"> 
 What happens:  
 1. Your VM wants to access a file in Blob Storage.   A Private Endpoint does not automatically disable public access.
 2. DNS resolves the storage hostname to the Private Endpoint IP, 10.0.2.5.  DNS must resolve the correct IP address.
