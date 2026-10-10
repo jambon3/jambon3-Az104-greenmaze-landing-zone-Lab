@@ -181,7 +181,7 @@ The Storage Account doesn't need its own IP address inside your VNet. The Privat
 
 ### Firewall vs. Private Endpoint
 The key difference is public network access versus private network connectivity
-<img src="image/firew-endpoint.png" alt="firew-endpoint" width="400"> 
+<img src="image/firew-endpoint.png" alt="firew-endpoint" width="500"> 
 ***Important: A private endpoint does not automatically disable the public endpoint. Also, neither a firewall rule nor a private endpoint grants data permissions by itself. Authentication and authorization still apply. 
 
 
