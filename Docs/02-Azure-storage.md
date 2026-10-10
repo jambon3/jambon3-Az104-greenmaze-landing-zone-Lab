@@ -333,5 +333,3 @@ Create a container or file share
 azcopy remove  
 Delete blobs or files
 	
-Delete blobs or files
-<img src="image/scenario.png" alt="scenario" width="400">   
