@@ -52,7 +52,7 @@ High-performance application
 High transaction rate  
 Low-latency workload  
 
-### redundancy
+### Azure Storage redundancy options
 
 Azure Storage redundancy means keeping multiple copies of your data so it can survive hardware failures, data-center outages, or regional disasters. The option you choose affects cost, availability, and disaster recovery.   
 - LRS — Locally Redundant Storage   
@@ -315,7 +315,6 @@ Copying data between storage accounts.
 Synchronizing data between supported locations.  
 Automating large file transfers with scripts.  
 
-
 azcopy login  
 Authenticate using Microsoft Entra ID
 
@@ -334,11 +333,5 @@ Create a container or file share
 azcopy remove  
 Delete blobs or files
 	
-
 Delete blobs or files
-
-### Data Protection
-- Encryption
-- Soft delete
-- Versioning
-- Replication
+<img src="image/scenario.png" alt="scenario" width="400">   
