@@ -170,7 +170,8 @@ Your VM accesses Azure Storage using its normal storage hostname, such as: green
 
 With a Private Endpoint  
 Now you create a Private Endpoint in your Azure virtual network.  
-<img src="image/pvt-endpoint.png" alt="pvt-endpoint" width="400">   
+<img src="image/pvt-endpoint.png" alt="pvt-endpoint" width="400">     
+
 What happens:  
 1. Your VM wants to access a file in Blob Storage. A Private Endpoint does not automatically disable public access.
 2. DNS resolves the storage hostname to the Private Endpoint IP, 10.0.2.5.  DNS must resolve the correct IP address.
