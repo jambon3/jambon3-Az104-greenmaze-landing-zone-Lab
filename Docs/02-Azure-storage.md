@@ -164,28 +164,36 @@ A private endpoint connects a supported storage service to a private IP address 
 Instead of relying on a publicly accessible endpoint, your Azure VM can connect to the storage service privately. More explanation: Think of a Private Endpoint as a private door between your Azure VM and your Azure Storage Account. Instead of accessing storage through its public IP address, your VM connects through a private IP address inside your Azure network.
 
 Without a Private Endpoint  
-<img src="image/no-pvt-endpoint.png" alt="no-pvt-endpoint" width="600"> 
-Your VM accesses Azure Storage using its normal storage hostname, such as: greenmazestorage.blob.core.windows.net  
-Without a Private Endpoint, the connection normally uses the storage account's public endpoint. Access still depends on authentication and the storage account's network rules.  
+<img src="image/no-pvt-endpoint.png" alt="no-pvt-endpoint" width="400">   
+Your VM accesses Azure Storage using its normal storage hostname, such as: greenmazestorage.blob.core.windows.net without a Private Endpoint, the connection normally uses the storage account's public endpoint. Access still depends on authentication and the storage account's network rules.  
 
 
 With a Private Endpoint  
 Now you create a Private Endpoint in your Azure virtual network.  
-<img src="image/pvt-endpoint.png" alt="pvt-endpoint" width="600"> 
+<img src="image/pvt-endpoint.png" alt="pvt-endpoint" width="400">   
 What happens:  
-1. Your VM wants to access a file in Blob Storage.   A Private Endpoint does not automatically disable public access.
+1. Your VM wants to access a file in Blob Storage. A Private Endpoint does not automatically disable public access.
 2. DNS resolves the storage hostname to the Private Endpoint IP, 10.0.2.5.  DNS must resolve the correct IP address.
 3. The VM sends its traffic through the private connection.  
 4. Azure Private Link carries the traffic to the storage service.  
 The Storage Account doesn't need its own IP address inside your VNet. The Private Endpoint provides the private IP that your VM connects to.  
 
 ### Firewall vs. Private Endpoint
+The key difference is public network access versus private network connectivity
+<img src="image/firew-endpoint.png" alt="firew-endpoint" width="400"> 
+***Important: A private endpoint does not automatically disable the public endpoint. Also, neither a firewall rule nor a private endpoint grants data permissions by itself. Authentication and authorization still apply. 
 
+
+Scenario                                                                                            Best answer
+
+Allow only specific public IP addresses                                                             Storage firewall  
+Allow a particular subnet through the public endpoint using a service endpoint                      Virtual network rule
+Connect to storage through a private IP in a VNet                                                   Private endpoint
+Require access only through private endpoints                                                       Configure private endpoint and disable public network access
+ive a user permission to read blobs                                                                 Entra ID and data-plane RBAC, or an appropriately scoped SAS
 Firewall: Restricts which sources can reach the public endpoint.
 
-Private endpoint: Provides private IP connectivity to the storage service.
 
-Both: Can be part of a defense-in-depth design.
 
 8.8.6 Encryption and HTTPS
 
