@@ -246,10 +246,12 @@ An administrator restores it before the retention period expires.
 - Snapshots  
 A snapshot captures a read-only, point-in-time state of a blob.   
 Example: before updating an important deployment file, you create a snapshot. If the update causes a problem, the snapshot can help you recover the earlier contents.  
-Snapshot: A point-in-time capture.  
-Versioning: Automatically maintains previous blob versions.  
-Soft delete: Protects against deletion for a retention period.  
-Snapshots can incur additional storage costs. They're also different from storage-account redundancy, which maintains copies of data for resilience.  
+Snapshot: A point-in-time capture.  Snapshots can incur additional storage costs. They're also different from storage-account redundancy, which maintains copies of data for resilience.  
+
+
+- Versioning: Automatically maintains previous blob versions.  
+
+- Soft delete: Protects against deletion for a retention period.  
 
 - Object replication  
 Object replication asynchronously copies supported block blobs between source and destination storage accounts.  
@@ -266,7 +268,7 @@ SMB vs. NFS
 These are file-sharing protocols: they define how computers communicate with a shared file system.  
 
 - SMB - Server Message Block - Common for Windows file shares, team folders, and home directories.
-Supports Windows ACL permissions. 
+Supports Windows ACL permissions.  
 Supports identity-based authentication using supported Kerberos identity sources.  
 Can be mounted by supported Windows, Linux, and macOS clients.  
 Uses TCP port 445 for standard SMB connections.  
@@ -281,14 +283,59 @@ Doesn't use SMB-style identity-based authentication.
 
 Microsoft confirms that a single Azure file share cannot be accessed using both SMB and NFS simultaneously, although separate shares can use different protocols. NFS shares require appropriate network configuration.  
 
-
 - Snapshots
-- Soft delete
+A share snapshot is a read-only, point-in-time copy of an Azure file share. You can use it to recover earlier versions of files or directories. its the same for Blob.
+Snapshots are incremental, meaning subsequent snapshots store the changes rather than duplicating all unchanged data each time. 
+  
+- Soft delete: Soft delete protects an Azure file share against accidental deletion by keeping the deleted share recoverable for a configured retention period.
+
 - Identity-based access
+Identity-based access lets users access an Azure file share using their own organizational identities rather than sharing a storage account key.  
+For SMB shares, Azure Files supports identity sources such as:  
+Active Directory Domain Services (AD DS)  
+Microsoft Entra Domain Services  
+Microsoft Entra Kerberos  
 
 ### Storage Tools
-- Azure Storage Explorer
-- AzCopy
+- Azure Storage Explorer: A graphical application for browsing and managing storage.  
+<img src="image/az-storeexplorer.png" alt="az-storeexplorer" width="400">    
+Azure Storage Explorer is a desktop application that lets you connect to Azure  Storage and manage data through a graphical interface. You can use it to:  
+Browse storage accounts and blob containers.  
+Upload and download blobs and files.  
+Create and delete containers and file shares.  
+View and manage queues and tables.  
+Inspect storage properties, access settings, and blob tiers.  
+It supports Windows, macOS, and Linux.
+
+
+- AzCopy: is a command-line tool designed to transfer data to, from, and between Azure Storage locations. It supports Azure Blob Storage and Azure Files, among other supported scenarios. Common uses include:   
+Uploading files from a local computer to Azure.  
+Downloading files from Azure to a local computer.  
+Copying data between storage accounts.  
+Synchronizing data between supported locations.  
+Automating large file transfers with scripts.  
+
+
+azcopy login  
+Authenticate using Microsoft Entra ID
+
+azcopy copy  
+Copy data between supported locations
+
+azcopy sync
+Synchronize supported source and destination locations  
+
+azcopy list  
+List files or objects at a supported location  
+
+azcopy make  
+Create a container or file share
+
+azcopy remove  
+Delete blobs or files
+	
+
+Delete blobs or files
 
 ### Data Protection
 - Encryption
