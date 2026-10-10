@@ -11,11 +11,6 @@ A Storage Account is the Azure resource. The storage services/data live within t
 ```
 Microsoft describes Blob as object storage for unstructured data, Files as managed file shares, Queues as asynchronous messaging, and Tables as schemaless NoSQL storage.
 
-
-
-
-
-
 ### Storage Account Types
 Microsoft currently recommends these main account types:
 ```text
@@ -185,53 +180,100 @@ The key difference is public network access versus private network connectivity
 ***Important: A private endpoint does not automatically disable the public endpoint. Also, neither a firewall rule nor a private endpoint grants data permissions by itself. Authentication and authorization still apply. 
 
 
-Scenario                                                                                            Best answer
+Scenario / Best answer
+Allow only specific public IP addresses / Storage firewall  
+Allow a particular subnet through the public endpoint using a service endpoint / Virtual network rule  
+Connect to storage through a private IP in a VNet / Private endpoint  
+Require access only through private endpoints / Configure private endpoint and disable public network access  
+Give a user permission to read blobs / Entra ID and data-plane RBAC, or an appropriately scoped SAS  
 
-Allow only specific public IP addresses                                                             Storage firewall  
-Allow a particular subnet through the public endpoint using a service endpoint                      Virtual network rule
-Connect to storage through a private IP in a VNet                                                   Private endpoint
-Require access only through private endpoints                                                       Configure private endpoint and disable public network access
-ive a user permission to read blobs                                                                 Entra ID and data-plane RBAC, or an appropriately scoped SAS
 Firewall: Restricts which sources can reach the public endpoint.
 
 
-
-8.8.6 Encryption and HTTPS
-
+### Encryption and HTTPS
 Encryption protects data in two different situations.
 
-Encryption at rest
-
+Encryption at rest  
 Protects stored data on the underlying storage infrastructure. Azure Storage encrypts data at rest by default; supported scenarios can use customer-managed keys.
 
 Encryption in transit
+HTTPS uses TLS to protect data as it travels between clients and Azure Storage. Enable Secure transfer required to reject HTTP requests. Microsoft recommends requiring secure transfer and using TLS 1.2 or later.
 
-HTTPS uses TLS to protect data as it travels between clients and Azure Storage. Enable Secure transfer required to reject HTTP requests.
+### Azure Blob Storage
+- Containers  
+A container organizes blobs inside an Azure Storage account. Think of it as a logical grouping for objects.
+<img src="image/Containers.png" alt="Containers" width="500">   
+Remember the hierarchy: Storage account → Container → Blob  
+A container is not the same thing as an Azure resource group. A resource group organizes Azure resources; a container organizes Blob data.
 
-Microsoft recommends requiring secure transfer and using TLS 1.2 or later.
-### 8.9 Azure Blob Storage
-- Containers
-- Blobs
-- Access tiers
-- Lifecycle management
-- Versioning
-- Soft delete
-- Snapshots
-- Object replication
+- Blobs  
+A blob is an individual object stored in a container.  
 
-### 8.10 Azure Files
-- File shares
+- Access tiers  
+Access tiers let you balance storage costs with how quickly and frequently you need to access data.  
+Hot NvMe/SSD   
+Frequently accessed data, such as active application files. Higher storage cost, generally lower access costs.  
+Cool SAS/SATA drives  
+Infrequently accessed data that still needs to be readily available. Minimum recommended retention: 30 days.  
+cold HDD cloud/Tape   
+Rarely accessed data that must remain online and readily retrievable. Minimum recommended retention: 90 days.  
+Archive  
+Rarely accessed data that must remain online and readily retrievable. Minimum recommended retention: 90 days.
+
+- Lifecycle management  
+Lifecycle management automates actions on blobs based on conditions such as age or last-modified time. It can transition supported blobs to cooler tiers or delete them when they reach a defined point in their lifecycle. In the Azure portal, open your storage account and go to Data management → Lifecycle management to create a policy.
+
+- Versioning  
+Versioning automatically preserves previous versions of a blob when it is modified or overwritten.
+```text
+config.json
+    ├── Version 1: original configuration
+    ├── Version 2: modified configuration
+    └── Version 3: current configuration
+```
+Versioning must be enabled on the storage account.  
+Previous versions consume storage and can increase costs.  
+Lifecycle policies can manage the retention of previous versions.  
+Versioning is useful for recovering from accidental overwrites, but it is not a replacement for every backup or disaster-recovery strategy.  
+
+- Soft delete  
+Soft delete provides a recovery window after supported blob data is deleted.  
+For example:  
+An administrator deletes a backup blob.  
+The blob enters a soft-deleted state.  
+An administrator restores it before the retention period expires.  
+
+- Snapshots  
+A snapshot captures a read-only, point-in-time state of a blob.   
+Example: before updating an important deployment file, you create a snapshot. If the update causes a problem, the snapshot can help you recover the earlier contents.  
+Snapshot: A point-in-time capture.  
+Versioning: Automatically maintains previous blob versions.  
+Soft delete: Protects against deletion for a retention period.  
+Snapshots can incur additional storage costs. They're also different from storage-account redundancy, which maintains copies of data for resilience.  
+
+- Object replication  
+Object replication asynchronously copies supported block blobs between source and destination storage accounts.  
+It can be useful when another account needs a copy of selected blob data.  
+
+### Azure Files  
+Azure Files is a managed cloud file-sharing service in Azure. It lets multiple computers and applications access shared files without requiring you to maintain your own file server.  
+
+- File shares  
+A file share is a shared storage location that multiple clients can connect to. An Azure file share can be mounted by multiple clients simultaneously. Unlike Blob Storage, which stores objects in containers, Azure Files provides a traditional file-system interface with directories and files.  
+<img src="image/storageaccount.png" alt="storageaccount" width="500">   
+
+
 - SMB
 - NFS
 - Snapshots
 - Soft delete
 - Identity-based access
 
-### 8.11 Storage Tools
+### Storage Tools
 - Azure Storage Explorer
 - AzCopy
 
-### 8.12 Data Protection
+### Data Protection
 - Encryption
 - Soft delete
 - Versioning
