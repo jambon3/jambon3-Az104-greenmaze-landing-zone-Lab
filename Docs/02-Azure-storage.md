@@ -262,9 +262,26 @@ Azure Files is a managed cloud file-sharing service in Azure. It lets multiple c
 A file share is a shared storage location that multiple clients can connect to. An Azure file share can be mounted by multiple clients simultaneously. Unlike Blob Storage, which stores objects in containers, Azure Files provides a traditional file-system interface with directories and files.  
 <img src="image/storageaccount.png" alt="storageaccount" width="500">   
 
+SMB vs. NFS
+These are file-sharing protocols: they define how computers communicate with a shared file system.  
 
-- SMB
-- NFS
+- SMB - Server Message Block - Common for Windows file shares, team folders, and home directories.
+Supports Windows ACL permissions. 
+Supports identity-based authentication using supported Kerberos identity sources.  
+Can be mounted by supported Windows, Linux, and macOS clients.  
+Uses TCP port 445 for standard SMB connections.  
+<img src="image/SMB.png" alt="SMB" width="500">   
+
+NFS — Network File System - Common for Linux and Unix workloads.
+Azure Files supports NFS 4.1.  
+Uses POSIX-style permissions and user/group IDs.  
+Requires restricted network access.  
+Doesn't use SMB-style identity-based authentication.  
+<img src="image/NFS.png" alt="NFS" width="400">   
+
+Microsoft confirms that a single Azure file share cannot be accessed using both SMB and NFS simultaneously, although separate shares can use different protocols. NFS shares require appropriate network configuration.  
+
+
 - Snapshots
 - Soft delete
 - Identity-based access
