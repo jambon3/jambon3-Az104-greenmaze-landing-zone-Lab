@@ -99,7 +99,6 @@ Combines zone resilience, geographic resilience, and secondary read access.
 
 And remember: GRS and GZRS replicate to the secondary asynchronously, so the secondary may not contain the latest writes when a disaster occurs. Redundancy alone also doesn't protect you from accidental deletions or malicious changes.
 
-## Storage Security
 Azure Storage security is about controlling who can access your data, how they connect to it, and how the data is protected.
 
 ### Access Keys and Key Rotation
@@ -116,15 +115,24 @@ Your application currently uses key1.
 Update the application to use key2 and verify that it works.  
 Regenerate key1 to invalidate the old key.  
 When needed, repeat the process in reverse to rotate key2.  
- 
-### Shared Access Signatures (SAS)  
-For example, you want a customer to download one PDF without giving them your storage account key.  
-You can create a SAS that permits:  
-One specific blob  
-Read-only access  
-Access until a specified expiry time  
-HTTPS connections only  
-The customer can then use the SAS URL without receiving your account key.  
+
+Enable access key authentication in the Azure portal  
+1. Open the Azure portal.  
+2. Navigate to your storage account, for example straapp01.  
+3. Under Settings, select Configuration.  
+4. Find Allow storage account key access.  
+5. Set it to Enabled.  
+6. Select Save.  
+<img src="image/en-acckey.png" alt="en-acckey" width="600"> 
+
+View your two access keys
+<img src="image/see-acckey.png" alt="see-acckey" width="600"> 
+
+ On the Blob account: 
+
+ <img src="image/Keyrotationinaz.png" alt=" Keyrotationinaz" width="400">  
+
+ <img src="image/accesskey.png" alt=" accesskey" width="400">  
 
 ### There are three SAS types:  
 User delegation SAS:     Signed using Microsoft Entra credentials; preferred for Blob Storage when SAS is needed  
@@ -133,6 +141,16 @@ Account SAS	:            Can delegate access across supported services in the ac
 
 Service SAS and account SAS are signed using the account key. User delegation SAS uses Microsoft Entra credentials. 
     Remember: A SAS is a bearer credential. Anyone who obtains the URL may be able to use it within its permissions and validity period. Keep permissions narrow and expiry short.  
+
+### Shared Access Signatures (SAS)  
+For example, you want a customer to download one PDF without giving them your storage account key. You can create a SAS that permits:  
+One specific blob  
+Read-only access  
+Access until a specified expiry time  
+HTTPS connections only  
+The customer can then use the SAS URL without receiving your account key. 
+
+Search for Storage accounts and select Create.
 
 
 ### Storage Firewalls and Virtual Network Rules
