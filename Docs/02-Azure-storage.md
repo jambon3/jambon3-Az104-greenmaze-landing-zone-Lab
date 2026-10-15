@@ -125,14 +125,8 @@ Enable access key authentication in the Azure portal
 6. Select Save.  
 <img src="image/en-acckey.png" alt="en-acckey" width="600"> 
 
-View your two access keys
+To view your two access keys go on the storage account
 <img src="image/see-acckey.png" alt="see-acckey" width="600"> 
-
- On the Blob account: 
-
- <img src="image/Keyrotationinaz.png" alt=" Keyrotationinaz" width="400">  
-
- <img src="image/accesskey.png" alt=" accesskey" width="400">  
 
 ### There are three SAS types:  
 User delegation SAS:     Signed using Microsoft Entra credentials; preferred for Blob Storage when SAS is needed  
