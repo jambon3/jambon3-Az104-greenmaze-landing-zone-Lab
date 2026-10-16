@@ -147,7 +147,7 @@ The customer can then use the SAS URL without receiving your account key.
 Account SAS:  
 <img src="image/account-SAS.png" alt="account-SAS" width="600">  
 
-Service SAS
+Service SAS  
 1. Open Data storage → Containers.
 2. Open your customer-files container.
 3. Select a specific blob, such as manual.pdf.
@@ -155,7 +155,7 @@ Service SAS
 Depending on the portal blade, you can configure permissions and expiry for the selected resource.  
 <img src="image/service-sas.png" alt="service-sas" width="600">  
 
-User delegation SAS
+User delegation SAS  
 This is signed using a user delegation key obtained with Microsoft Entra credentials. The portal's available options vary, so you may need Azure Cloud Shell with Azure CLI or PowerShell to create one.
 <img src="image/delegation-SAS.jpg" alt="delegation-SAS" width="600"> 
 
@@ -190,6 +190,7 @@ You can configure network rules to allow selected IP addresses, virtual networks
 
 ***Important: being allowed by the firewall does not grant data permissions. The user or application must still authenticate and be authorized. 
 
+<img src="image/soragenetwork.png" alt="soragenetwork" width="600"> 
 
 ### Private Endpoints
 A private endpoint connects a supported storage service to a private IP address in your Azure virtual network using Azure Private Link.
