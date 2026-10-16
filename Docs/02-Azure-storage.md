@@ -146,6 +146,20 @@ The customer can then use the SAS URL without receiving your account key.
 
 Search for Storage accounts and select Create.
 
+<img src="image/SAS.png" alt="SAS" width="600"> 
+
+<img src="image/container.png" alt="container" width="600"> 
+
+The exact SAS options available depend on the type of SAS you generate and your storage account configuration.
+
+In Azure Storage, a container is like a folder that holds your files (blobs). It helps you organize data inside a storage account.
+
+A private container means its contents aren't publicly accessible by anonymous users.  
+Container access
+Private - Anonymous users cannot access the files. Authorized access is still possible.
+Blob - Anonymous users can read individual blobs if public access is enabled and configured.
+Container -	Anonymous users can list and read blobs if public container access is enabled.
+<img src="image/container-access.png" alt="container-access" width="600"> 
 
 ### Storage Firewalls and Virtual Network Rules
 Storage firewalls control where network connections to the public endpoint may originate.
