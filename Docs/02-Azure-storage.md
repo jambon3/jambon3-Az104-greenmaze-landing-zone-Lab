@@ -144,10 +144,10 @@ Access until a specified expiry time
 HTTPS connections only  
 The customer can then use the SAS URL without receiving your account key. 
 
-Account SAS:
+Account SAS:  
 <img src="image/account-SAS.png" alt="account-SAS" width="600">  
 
-Service SAS  
+Service SAS
 1. Open Data storage → Containers.
 2. Open your customer-files container.
 3. Select a specific blob, such as manual.pdf.
