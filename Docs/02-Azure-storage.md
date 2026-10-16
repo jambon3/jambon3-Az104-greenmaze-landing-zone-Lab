@@ -160,6 +160,16 @@ This is signed using a user delegation key obtained with Microsoft Entra credent
 
 <img src="image/delegation-SAS.jpg" alt="delegation-SAS" width="600"> 
 
+### stored access policies
+
+
+### Storage authorization and Azure RBAC
+
+
+### Cost management for storage
+
+
+
 ## Contrainer
 <img src="image/SAS.png" alt="SAS" width="600"> 
 
@@ -373,7 +383,7 @@ Authenticate using Microsoft Entra ID
 azcopy copy  
 Copy data between supported locations
 
-azcopy sync
+azcopy sync  
 Synchronize supported source and destination locations  
 
 azcopy list  
