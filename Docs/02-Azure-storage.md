@@ -144,13 +144,23 @@ Access until a specified expiry time
 HTTPS connections only  
 The customer can then use the SAS URL without receiving your account key. 
 
-Search for Storage accounts and select Create.
+Account SAS:
+<img src="image/account-SAS.png" alt="account-SAS" width="600">  
 
+Service SAS  
+1. Open Data storage → Containers.
+2. Open your customer-files container.
+3. Select a specific blob, such as manual.pdf.
+4. Look for Generate SAS or Generate SAS token and URL.
+Depending on the portal blade, you can configure permissions and expiry for the selected resource.  
+<img src="image/service-sas.png" alt="service-sas" width="600">  
+
+User delegation SAS
+This is signed using a user delegation key obtained with Microsoft Entra credentials. The portal's available options vary, so you may need Azure Cloud Shell with Azure CLI or PowerShell to create one.
+<img src="image/delegation-SAS.jpg" alt="delegation-SAS" width="600"> 
+
+## Contrainer
 <img src="image/SAS.png" alt="SAS" width="600"> 
-
-<img src="image/container.png" alt="container" width="600"> 
-
-The exact SAS options available depend on the type of SAS you generate and your storage account configuration.
 
 In Azure Storage, a container is like a folder that holds your files (blobs). It helps you organize data inside a storage account.
 
@@ -159,6 +169,7 @@ Container access
 Private - Anonymous users cannot access the files. Authorized access is still possible.
 Blob - Anonymous users can read individual blobs if public access is enabled and configured.
 Container -	Anonymous users can list and read blobs if public container access is enabled.
+
 <img src="image/container-access.png" alt="container-access" width="600"> 
 
 ### Storage Firewalls and Virtual Network Rules
