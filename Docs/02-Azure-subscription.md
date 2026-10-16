@@ -78,3 +78,10 @@ Global Administrator
 User Administrator  
 Groups Administrator  
 
+## Check what is actually being charged
+1. Open the Azure Cost Management + Billing portal.
+2. Select Cost analysis.
+3. Set the date range to Current month.
+4. Select each of your four subscriptions individually and check Actual cost.
+5. Also check Invoices under Cost Management + Billing to see whether an invoice has been issued.
+Azure usage data can take time to appear, so a zero balance today doesn't guarantee that no charges are accruing. 

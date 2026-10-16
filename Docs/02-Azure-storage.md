@@ -210,7 +210,19 @@ What happens:
 2. DNS resolves the storage hostname to the Private Endpoint IP, 10.0.2.5.  DNS must resolve the correct IP address.
 3. The VM sends its traffic through the private connection.  
 4. Azure Private Link carries the traffic to the storage service.  
-The Storage Account doesn't need its own IP address inside your VNet. The Private Endpoint provides the private IP that your VM connects to.  
+The Storage Account doesn't need its own IP address inside your VNet. The Private Endpoint provides the private IP that your VM connects to.   
+To create private endpoint: Go to Networking → Private endpoint connections, then select + Private endpoint. You can also search the portal for Private endpoints and select Create.
+<img src="image/privateendpoint.png" alt="privateendpoint" width="400">   
+<img src="image/eployprivateendpoint.png" alt="eployprivateendpoint" width="400">   
+
+You need to create a Virtual Network (VNet) and a subnet before you can create the Private Endpoint for your storage account strapp01. Think of the VNet as your private network in Azure and the subnet as a smaller network inside it.  
+- Virtual networks, select the service, and click Create.
+Name: vnet-greenmaze-east
+Resource group: RG_Network (RG should be grouped by resource type)
+IP: 10.0.1.0/24
+Add sub-net: 10.0.1.0 - 10.0.1.127 /25 
+
+A vnet is needed only for private endpoint
 
 ### Firewall vs. Private Endpoint
 The key difference is public network access versus private network connectivity
