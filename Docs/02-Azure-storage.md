@@ -156,7 +156,8 @@ Depending on the portal blade, you can configure permissions and expiry for the 
 <img src="image/service-sas.png" alt="service-sas" width="600">  
 
 User delegation SAS  
-This is signed using a user delegation key obtained with Microsoft Entra credentials. The portal's available options vary, so you may need Azure Cloud Shell with Azure CLI or PowerShell to create one.
+This is signed using a user delegation key obtained with Microsoft Entra credentials. The portal's available options vary, so you may need Azure Cloud Shell with Azure CLI or PowerShell to create one.  
+
 <img src="image/delegation-SAS.jpg" alt="delegation-SAS" width="600"> 
 
 ## Contrainer
@@ -213,7 +214,7 @@ What happens:
 The Storage Account doesn't need its own IP address inside your VNet. The Private Endpoint provides the private IP that your VM connects to.   
 To create private endpoint: Go to Networking → Private endpoint connections, then select + Private endpoint. You can also search the portal for Private endpoints and select Create.
 <img src="image/privateendpoint.png" alt="privateendpoint" width="400">   
-<img src="image/eployprivateendpoint.png" alt="eployprivateendpoint" width="400">   
+<img src="image/deployprivateendpoint.png" alt="deployprivateendpoint" width="400">   
 
 You need to create a Virtual Network (VNet) and a subnet before you can create the Private Endpoint for your storage account strapp01. Think of the VNet as your private network in Azure and the subnet as a smaller network inside it.  
 - Virtual networks, select the service, and click Create.
@@ -226,7 +227,8 @@ A vnet is needed only for private endpoint
 
 ### Firewall vs. Private Endpoint
 The key difference is public network access versus private network connectivity
-<img src="image/firew-endpoint.png" alt="firew-endpoint" width="500"> 
+<img src="image/firew-endpoint.png" alt="firew-endpoint" width="500">  
+
 ***Important: A private endpoint does not automatically disable the public endpoint. Also, neither a firewall rule nor a private endpoint grants data permissions by itself. Authentication and authorization still apply. 
 
 
@@ -252,7 +254,7 @@ HTTPS uses TLS to protect data as it travels between clients and Azure Storage. 
 ### Azure Blob Storage
 - Containers  
 A container organizes blobs inside an Azure Storage account. Think of it as a logical grouping for objects.
-<img src="image/Containers.png" alt="Containers" width="500">   
+<img src="image/Containers (1).png" alt="Containers (1)" width="500">   
 Remember the hierarchy: Storage account → Container → Blob  
 A container is not the same thing as an Azure resource group. A resource group organizes Azure resources; a container organizes Blob data.
 
