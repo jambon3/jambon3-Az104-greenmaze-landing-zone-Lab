@@ -161,7 +161,14 @@ This is signed using a user delegation key obtained with Microsoft Entra credent
 <img src="image/delegation-SAS.jpg" alt="delegation-SAS" width="600"> 
 
 ### stored access policies
+A stored access policy lets you centrally manage the permissions and lifetime of certain Shared Access Signatures (SAS) for Azure Blob Storage, file shares, queues, and tables where supported.  
+Think of a SAS as a temporary access pass to your storage data. A stored access policy is like a rule that controls that pass.  
 
+Example: Your company has a storage account named strapp01 and a container holding software releases. You issue a service SAS so a customer can download files for seven days.  
+You can create a stored access policy named CustomerDownload with:  
+- Permissions: Read  
+- Start time: optional  
+- Expiry: seven days from creation  
 
 ### Storage authorization and Azure RBAC
 
