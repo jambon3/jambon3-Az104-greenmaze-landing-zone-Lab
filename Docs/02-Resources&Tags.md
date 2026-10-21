@@ -1,3 +1,4 @@
+ building
  # Resource
   A resource is an individual Azure service that you deploy inside a resource group. A resource cannot exist independently of a resource group.  
 

@@ -1,3 +1,4 @@
+building
 Based on Microsoft's current AZ-104 objectives, after what you've covered, the next topic I would do is Resource Locks. Microsoft explicitly lists resource locks alongside Policy and tags under Azure subscriptions/governance.
 
 Your governance sequence should now be:
