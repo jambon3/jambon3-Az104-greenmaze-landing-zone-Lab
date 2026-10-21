@@ -24,6 +24,7 @@ Storage Account Types
 │
 └── Premium page blobs
 ```
+
 ### Performance Tiers
 ```text 
 GPv2
@@ -171,11 +172,21 @@ You can create a stored access policy named CustomerDownload with:
 - Expiry: seven days from creation  
 
 ### Storage authorization and Azure RBAC
+Azure Storage authorization determines who can access storage data and what they can do.  
+Azure RBAC  
+Controls access through Azure role assignments, such as at the subscription, resource group, storage account, or supported data-resource scope.  
 
+Storage account keys and SAS  
+Account keys provide broad access, while SAS tokens delegate limited access for a defined period and set of permissions.  
+The appropriate role is Storage Blob Data Reader.  
 
-### Cost management for storage
-
-
+In the Azure portal:  
+1. Open your storage account.  
+2. Select Access control (IAM).  
+3. Select Add → Add role assignment.  
+4. Choose Storage Blob Data Reader.  
+5. Select the developer's user account or group.  
+6. Review and assign.  
 
 ## Contrainer
 <img src="image/SAS.png" alt="SAS" width="600"> 
@@ -325,6 +336,8 @@ Snapshot: A point-in-time capture.  Snapshots can incur additional storage costs
 - Object replication  
 Object replication asynchronously copies supported block blobs between source and destination storage accounts.  
 It can be useful when another account needs a copy of selected blob data.  
+
+### immutable Blob Storage
 
 ### Azure Files  
 Azure Files is a managed cloud file-sharing service in Azure. It lets multiple computers and applications access shared files without requiring you to maintain your own file server.  
