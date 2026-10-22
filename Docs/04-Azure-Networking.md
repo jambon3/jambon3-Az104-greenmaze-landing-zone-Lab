@@ -23,7 +23,7 @@ Remember: a smaller prefix number means a larger network. For example, /16 conta
 The smallest supported IPv4 subnet is /29. It means Azure supports IPv4 subnet sizes from /29 up to larger ranges such as /28, /27, /24, and /16 (among other prefixes).  
 
 10.0.1.0/24 covers addresses from 10.0.1.0 to 10.0.1.255. In a standard Azure subnet, 5 addresses are reserved by the platform. Azure-reserved addresses: first 4 and last 1  
-<img src="image/subnet-reserve.png" alt="subnet-reserve" width="600">
+<img src="image/subnet-reserve.png" alt="subnet-reserve" width="600">  
 First 4 + last 1 = 5 reserved IPv4 addresses per subnet.
 
 ### Creating a VNet in the portal
@@ -63,19 +63,20 @@ You just learned about Azure Bastion. The key difference is:
 1. How Azure Firewall works  
 Imagine your GreenMaze VNet contains two subnets:  
 
-<img src="firewall.png" alt="firewall" width="600">   
+<img src="image/firewall.png" alt="firewall" width="600">   
 
 For example, you could configure a firewall rule to allow your VM to access approved websites while blocking connections to other destinations. To make traffic follow the firewall, you may also need to configure Azure routes.  
 
 Azure Firewall is stateful: it tracks connections and automatically allows the return traffic for permitted connections.  
 
-### Azure Firewall vs. NSG vs. Bastion
-These three services have different purposes.
-Feature	Main purpose
-Network Security Group (NSG)	Filter traffic to and from network interfaces or subnets using IPs, ports, and protocols.
-Azure Firewall	Centralize traffic inspection and filtering across networks, with application-aware rules and additional threat protection.
-Azure Bastion	Securely connect administrators to VMs over RDP or SSH through the Azure portal.
-An NSG is usually sufficient for basic subnet and VM traffic control. Azure Firewall is useful when you need centralized rules across multiple subnets or VNets.
+### Azure Firewall vs. NSG vs. Bastion 
+These three services have different purposes.  
+Feature                         	Main purpose  
+Network Security Group (NSG)	    Filter traffic to and from network interfaces or subnets using IPs, ports, and protocols.  
+Azure Firewall	                    Centralize traffic inspection and filtering across networks, with application-aware rules and additional threat protection.  
+Azure Bastion	                    Securely connect administrators to VMs over RDP or SSH through the Azure portal.  
+
+An NSG is usually sufficient for basic subnet and VM traffic control. Azure Firewall is useful when you need centralized rules across multiple subnets or VNets.  
 Azure DDoS Network Protection  
 
 ### Address spaces, CIDR, subnetting, and VNet design.
