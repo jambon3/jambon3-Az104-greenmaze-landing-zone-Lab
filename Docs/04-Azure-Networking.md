@@ -71,12 +71,19 @@ Azure Firewall is stateful: it tracks connections and automatically allows the r
 
 ### Azure Firewall vs. NSG vs. Bastion 
 These three services have different purposes.  
-Feature                         	Main purpose  
-Network Security Group (NSG)	    Filter traffic to and from network interfaces or subnets using IPs, ports, and protocols.  
-Azure Firewall	                    Centralize traffic inspection and filtering across networks, with application-aware rules and additional threat protection.  
-Azure Bastion	                    Securely connect administrators to VMs over RDP or SSH through the Azure portal.  
+
+Network Security Group (NSG): Filter traffic to and from network interfaces or subnets using IPs, ports, and protocols.
+Azure Firewall: Centralize traffic inspection and filtering across networks, with application-aware rules and additional threat protection.  
+Azure Bastion: Securely connect administrators to VMs over RDP or SSH through the Azure portal.  
 
 An NSG is usually sufficient for basic subnet and VM traffic control. Azure Firewall is useful when you need centralized rules across multiple subnets or VNets.  
+
+An important distinction: creating a VNet and subnets does not automatically isolate the subnets from each other. You use NSGs and other network controls to enforce the security boundaries you need.
+
+
+
+
+
 Azure DDoS Network Protection  
 
 ### Address spaces, CIDR, subnetting, and VNet design.
