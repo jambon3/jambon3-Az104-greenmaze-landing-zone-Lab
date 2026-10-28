@@ -1,11 +1,11 @@
 ### Plan virtual network
 
-<img src="image/planvnet.png" alt="planvnet" width="500">   
+<img src="image/planvnet.png" alt="planvnet" width="600">   
 
 
 
 ## Things to consider when using virtual networks
-<img src="image/plan.png" alt="plan" width="500">  
+<img src="image/plan.png" alt="plan" width="600">  
 
 
 These three scenarios explain why you would create an Azure Virtual Network (VNet) and how it can connect cloud resources to each other, the internet, or your company's on-premises network.
@@ -20,11 +20,11 @@ Example: Imagine you're building a test environment for your GreenMaze AZ-104 la
 - Two VMs communicate over the VNet's private IP addresses.  
 - You configure internet access only for resources that need it.  
 
-<img src="image/vnet-greenmaze.png" alt="vnet-greenmaze" width="500">  
+<img src="image/vnet-greenmaze.png" alt="vnet-greenmaze" width="600">  
 
-<img src="image/addspace.png" alt="addspace" width="500">  
+<img src="image/addspace.png" alt="addspace" width="600">  
 
-<img src="image/subnetvm.png" alt="subnetvm" width="500">   
+<img src="image/subnetvm.png" alt="subnetvm" width="600">   
 
 Why do we use 10.0.1.0/24?  
 Your VNet is 10.0.0.0/16, which covers a large range of private IP addresses. The subnet 10.0.1.0/24 reserves a smaller block inside it.  
@@ -41,7 +41,7 @@ When would you use this? Development environments, application testing, cloud-ho
 
 ## 2. Securely extend your data center with virtual networks  
 
-<img src="image/vpnvm.png" alt="vpnvm" width="500">  
+<img src="image/vpnvm.png" alt="vpnvm" width="600">  
 
 Meaning: Your company has a physical data center, but you want to use Azure resources as an extension of that network.
 
@@ -112,7 +112,7 @@ You don't need to configure internet access just to let the two VMs communicate 
 If your VMs need outbound internet access for updates or downloads, you can configure an appropriate method such as an Azure NAT Gateway or Azure Firewall. A NAT Gateway allows outbound connectivity without assigning public IP addresses to the VMs, but it has a cost.
 
 ## 3. Enable hybrid cloud scenarios
-<img src="image/hybrid.png" alt="hybrid" width="500">  
+<img src="image/hybrid.png" alt="hybrid" width="600">  
 
 
 Meaning: Your organization uses a combination of on-premises systems and Azure resources, and they need to work together.
