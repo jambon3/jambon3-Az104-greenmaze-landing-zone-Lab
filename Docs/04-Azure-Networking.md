@@ -40,6 +40,34 @@ First 4 + last 1 = 5 reserved IPv4 addresses per subnet.
 
 https://learn.microsoft.com/en-us/azure/virtual-network/quickstart-create-virtual-network?utm_source=chatgpt.com&tabs=portal  
 
+<img src="image/scenariso.png" alt="scenariso" width="600">  
+<img src="image/scenario2.png" alt="scenario2" width="600">  
+
+### Subnet 
+A virtual network can be segmented into one or more subnets.  
+Subnets provide logical division within your network.  
+Subnets can help improve security, increase performance, and make it easier to manage the network.  
+Each subnet must have a unique address range - cannot overlap with other subnets in the vnet in the subscription. 
+
+### Reserved addresses 
+
+For each subnet, Azure reserves five IP addresses. The first four addresses and the last address are reserved.
+Let's examine the reserved addresses in an IP address range of 192.168.1.0/24.
+
+192.168.1.0	This value identifies the virtual network address.  
+192.168.1.1	Azure configures this address as the default gateway.  
+192.168.1.2 and 192.168.1.3	Azure maps these Azure DNS IP addresses to the virtual network space.  
+192.168.1.255	This value supplies the virtual network broadcast address.  
+
+## IP Address
+Static IP addresses don't change and are best for certain situations, such as:  
+DNS name resolution, where a change in the IP address requires updating host records.  
+IP address-based security models that require apps or services to have a static IP address.  
+TLS/SSL certificates linked to an IP address.  
+Firewall rules that allow or deny traffic by using IP address ranges.  
+Role-based virtual machines such as Domain Controllers and DNS servers.   
+
+### Azure Bastion
 Azure Bastion is a managed Azure service that lets you securely connect to a virtual machine (VM) using RDP (Windows) or SSH (Linux) through the Azure portal, without exposing the VM's public IP address.  
 <img src="image/howwork.png" alt="howwork" width="600">  
 Think of it as a secure remote-access gateway into your Azure network.  
@@ -72,8 +100,10 @@ Azure Firewall is stateful: it tracks connections and automatically allows the r
 ### Azure Firewall vs. NSG vs. Bastion 
 These three services have different purposes.  
 
-Network Security Group (NSG): Filter traffic to and from network interfaces or subnets using IPs, ports, and protocols.
+Network Security Group (NSG): Filter traffic to and from network interfaces or subnets using IPs, ports, and protocols. An NSG contains inbound and outbound security rules. Each rule can specify a source, destination, port, protocol, and whether to allow or deny the traffic. NSGs are stateful, meaning return traffic for an allowed connection is automatically permitted.  
+
 Azure Firewall: Centralize traffic inspection and filtering across networks, with application-aware rules and additional threat protection.  
+
 Azure Bastion: Securely connect administrators to VMs over RDP or SSH through the Azure portal.  
 
 An NSG is usually sufficient for basic subnet and VM traffic control. Azure Firewall is useful when you need centralized rules across multiple subnets or VNets.  
@@ -87,6 +117,18 @@ An important distinction: creating a VNet and subnets does not automatically iso
 Azure DDoS Network Protection  
 
 ### Address spaces, CIDR, subnetting, and VNet design.
+An Azure virtual network is a logical isolation of the Azure cloud resources.  
+
+You can use virtual networks to provision and manage virtual private networks (VPNs) in Azure.  
+
+You control the DNS server settings for virtual networks, and segmentation of the virtual network into subnets.  
+
+
+Each virtual network has its own Classless Inter-Domain Routing (CIDR) block and can be linked to other virtual networks and on-premises networks.  
+
+You can link virtual networks with an on-premises IT infrastructure to create hybrid or cross-premises solutions, when the CIDR blocks of the connecting networks don't overlap.
+
+
 
 
 
@@ -113,4 +155,5 @@ Azure DDoS Network Protection
 
 
 ## Network troubleshooting
+
 ### Network Watcher, connection troubleshoot, IP flow verify, and packet capture.
