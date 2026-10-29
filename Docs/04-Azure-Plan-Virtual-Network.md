@@ -32,45 +32,36 @@ Your VNet is 10.0.0.0/16, which covers a large range of private IP addresses. Th
 - 10.0.1.1 through 10.0.1.254 — 254 addresses in the subnet; Azure reserves five addresses, leaving 251 for other allocations.  
 - 10.0.1.255 — broadcast address in conventional IPv4 subnetting; Azure reserves this address too.  
 AZ-104 exam tip: Azure reserves five IP addresses in every IPv4 subnet.  
+10.0.1.0 — network address  
+10.0.1.1 — Azure-reserved  
+10.0.1.2 — Azure-reserved  
+10.0.1.3 — Azure-reserved  
+10.0.1.4 through 10.0.1.254 — 251 addresses available for allocation  
+10.0.1.255 — Azure-reserved   
 
+A /24 has 256 total addresses, so \(256-5=251\) are available for Azure resources.  
 The VMs can communicate privately, subject to network security groups (NSGs), routes, firewalls, and other controls.  
 
 Important: A VNet does not automatically give every VM internet access, and a private IP address alone does not make a resource secure. Internet connectivity depends on the network configuration.  
 
 When would you use this? Development environments, application testing, cloud-hosted services, or workloads that don't need to communicate with an on-premises data center.  
 
-## 2. Securely extend your data center with virtual networks  
-
-<img src="image/vpnvm.png" alt="vpnvm" width="600">  
-
-Meaning: Your company has a physical data center, but you want to use Azure resources as an extension of that network.
-
-Example: Your company has a database server on-premises and an application server in Azure.
-
-You configure a site-to-site (S2S) VPN between:
-- Your company's VPN gateway.
-- An Azure VPN gateway in your VNet.
-The VPN creates an encrypted IPsec tunnel over the internet.
-
-The result: the Azure application can communicate with the on-premises database through the private network connection, subject to routing and firewall rules.
-
-When would you use this? Migrating workloads gradually to Azure, extending data center capacity, or allowing Azure applications to access on-premises resources.
 
 Step 2 — Create your first VM
 In the Azure portal:
 1. Search for Virtual machines.
 2. Click + Create → Azure virtual machine.
-3. On the Basics tab, enter:
-Setting	Value
-Virtual machine name	VM-GreenMaze-01
-Region	Canada East
-Image	Ubuntu Server LTS
-Size	A small supported size suitable for a lab
-Authentication type	SSH public key
-Username	azureuser
+3. On the Basics tab, enter:  
 
-Choose your existing subscription and resource group.
-Step 3 — Connect the VM to your subnet
+Virtual machine name: VM-GreenMaze-01  
+Region: Canada East  
+Image: Ubuntu Server LTS  
+Size: A small supported size suitable for a lab  
+Authentication type: SSH public key  
+Username: azureuser  
+
+Choose your existing subscription and resource group.  
+  Step 3 — Connect the VM to your subnet
 On the Networking tab, configure:
 Setting	Value
 Virtual network	VNet-GreenMaze
@@ -111,44 +102,3 @@ You don't need to configure internet access just to let the two VMs communicate 
 
 If your VMs need outbound internet access for updates or downloads, you can configure an appropriate method such as an Azure NAT Gateway or Azure Firewall. A NAT Gateway allows outbound connectivity without assigning public IP addresses to the VMs, but it has a cost.
 
-## 3. Enable hybrid cloud scenarios
-<img src="image/hybrid.png" alt="hybrid" width="600">  
-
-
-Meaning: Your organization uses a combination of on-premises systems and Azure resources, and they need to work together.
-
-A hybrid environment might contain:
-- An on-premises Active Directory domain controller.
-- An Azure virtual machine running an application.
-- An on-premises database.
-- Azure storage or other cloud services.
-For example, an Azure VM might need to authenticate against your on-premises Active Directory, resolve internal DNS names, and access a database in your data center.
-
-You could connect the environments using an S2S VPN or, for suitable enterprise requirements, ExpressRoute.
-
-Important distinction: Hybrid cloud is the overall architecture. A VPN is one way to connect the environments; hybrid cloud can also use other connectivity methods.
-The difference between the three scenarios
-Scenario	Main objective	Typical connectivity
-Cloud-only VNet	Run resources privately in Azure	Azure VNet; internet access configured as needed
-Extend a data center	Connect Azure to an existing network	Site-to-site IPsec VPN or ExpressRoute
-Hybrid cloud	Make on-premises and cloud systems work together	VPN or ExpressRoute, plus DNS, routing, identity, and security configuration
-
-AZ-104: remember this
-
-Cloud-only
-
-Azure resources communicate within Azure. No on-premises connection is required.
-
-
-
-
-Site-to-site VPN
-
-Connects entire networks using an encrypted IPsec tunnel.
-
-
-
-
-Hybrid cloud
-
-An architecture combining on-premises infrastructure with Azure services.
