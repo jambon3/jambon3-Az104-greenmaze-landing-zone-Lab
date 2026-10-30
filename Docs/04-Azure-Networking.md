@@ -116,13 +116,13 @@ Your on-premises DNS server doesn't automatically know about Azure Private DNS z
 
 <img src="image/dns-resolver.png" alt="dns-resolver" width="800">  
 
-Inbound endpoint  
+# Inbound endpoint  
 - Allows DNS queries to come into Azure from on-premises networks.  
 - Your on-premises DNS server forwards queries for Azure private DNS names to the inbound endpoint's private IP.  
 - Azure resolves the name using the linked Private DNS zone.  
 Example: Montreal PC → On-prem DNS → Azure DNS Private Resolver inbound endpoint → Azure Private DNS  
 
-Outbound endpoint  
+# Outbound endpoint  
 - Allows DNS queries to go out of Azure to external DNS servers, such as your company's on-premises DNS.  
 - Azure DNS forwarding rules tell Azure where to send queries for specific domains.  
 Example: Azure VM → Azure DNS Private Resolver outbound endpoint → On-prem DNS server  
@@ -132,7 +132,19 @@ Inbound On-premises asks Azure
 
 Outbound Azure asks on-premises  
 
-## Azure Bastion, Route server, NAT Gatewat, and Traffic Manager.
+
+## Az Route server  
+Azure Route Server allows Azure and your network virtual appliance (NVA) to automatically exchange network routing information using BGP, instead of you manually configuring routes.
+<img src="image/route-server.png" alt="route-server" width="800">  
+NVA stands for Network Virtual Appliance. It's a virtual network device running inside Azure that performs networking or security functions.  
+Examples:- Firewall - Router - VPN appliance - Network traffic inspection appliance   
+Examples of vendors include Fortinet, Cisco and Palo Alto Networks. Think of an NVA as a virtual firewall or router inside your Azure network.  
+
+Azure Route Server automates the exchange of routing information.  
+stands for Border Gateway Protocol = BGP: Routing protocol that dynamically exchanges network routes. It's a routing protocol that allows network devices to exchange information about which networks they can reach. If the advertised routes change, BGP can update the routing information automatically.  
+
+## NAT Gatewat, and Traffic Manager.
+
 
 ### Load balancing and content delivery: Manage, distribute, and optimize your applications and workload.
 ## Load Balance, Application Gateway, Route Server, NAT Gateway, and Traffic Manager.
@@ -153,15 +165,13 @@ Outbound Azure asks on-premises
 
 
 ### Azure Bastion
-Azure Bastion is a managed Azure service that lets you securely connect to a virtual machine (VM) using RDP (Windows) or SSH (Linux) through the Azure portal, without exposing the VM's public IP address.  
+Azure Bastion is a service that you can deploy in a virtual network to connect to a virtual machine by using your browser and the Azure portal. You can also connect by using the native SSH or RDP client already installed on your local computer. The Azure Bastion service is a fully platform-managed PaaS service that you deploy inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect through Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software. Azure Bastion offers four SKU tiers: Developer, Basic, Standard, and Premium. The tier you select affects the available features. 
 <img src="image/howwork.png" alt="howwork" width="600">  
 Think of it as a secure remote-access gateway into your Azure network.  
-
 ## Why use Azure Bastion?  
-- More secure: You don't need to expose your VM to the internet with a public IP.  
+- More secure: You don't need to expose your VM to the internet with a public IP.   
 - Easy access: Connect to Windows or Linux VMs directly from your browser.  
 - No client installation: Browser-based RDP/SSH works through the Azure portal.   
-
 Deployments cost money for every hour they exist, even when you're not connected. The Bastion Developer option is free, but has limitations and is available only in supported regions.  
 One important networking detail: dedicated Bastion deployments require a separate subnet named AzureBastionSubnet with a /26 or larger address range. You cannot use your ordinary application subnet for Bastion.  
 
