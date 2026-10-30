@@ -154,7 +154,7 @@ When VM 1 and VM 2 access the internet:
 - External websites see the NAT Gateway's public IP, not the VMs' private IPs.  
 
 Remember these three points:  
-1. NAT Gateway is primarily for outbound connectivity.  
+1. NAT Gateway is primarily forS outbound connectivity.  
 2. It can provide a static public IP shared by multiple VMs.  
 3. It does not provide inbound internet access to your VMs.  
 ## and Traffic Manager.
