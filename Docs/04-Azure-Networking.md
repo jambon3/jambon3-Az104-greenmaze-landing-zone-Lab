@@ -135,7 +135,7 @@ Outbound Azure asks on-premises
 
 ## Az Route server  
 Azure Route Server allows Azure and your network virtual appliance (NVA) to automatically exchange network routing information using BGP, instead of you manually configuring routes.
-<img src="image/route-server.png" alt="route-server" width="800">  
+<img src="image/route-server.png" alt="route-server" width="400">  
 NVA stands for Network Virtual Appliance. It's a virtual network device running inside Azure that performs networking or security functions.  
 Examples:- Firewall - Router - VPN appliance - Network traffic inspection appliance   
 Examples of vendors include Fortinet, Cisco and Palo Alto Networks. Think of an NVA as a virtual firewall or router inside your Azure network.  
@@ -143,7 +143,21 @@ Examples of vendors include Fortinet, Cisco and Palo Alto Networks. Think of an 
 Azure Route Server automates the exchange of routing information.  
 stands for Border Gateway Protocol = BGP: Routing protocol that dynamically exchanges network routes. It's a routing protocol that allows network devices to exchange information about which networks they can reach. If the advertised routes change, BGP can update the routing information automatically.  
 
-## NAT Gatewat, and Traffic Manager.
+## NAT Gateway (Network Address Translation Gateway)
+NAT Gateway simplifies outbound-only internet connectivity for virtual networks. When you configure it on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without a load balancer or public IP addresses directly attached to virtual machines. You associate the NAT Gateway with a subnet.
+
+<img src="image/NAT.png" alt="NAT" width="400">  
+
+When VM 1 and VM 2 access the internet:  
+- Both use the NAT Gateway.  
+- Their private IP addresses are translated to the NAT Gateway's public IP.  
+- External websites see the NAT Gateway's public IP, not the VMs' private IPs.  
+
+Remember these three points:  
+1. NAT Gateway is primarily for outbound connectivity.  
+2. It can provide a static public IP shared by multiple VMs.  
+3. It does not provide inbound internet access to your VMs.  
+## and Traffic Manager.
 
 
 ### Load balancing and content delivery: Manage, distribute, and optimize your applications and workload.
