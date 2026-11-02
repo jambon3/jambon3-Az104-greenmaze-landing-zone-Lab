@@ -157,7 +157,24 @@ Remember these three points:
 1. NAT Gateway is primarily forS outbound connectivity.  
 2. It can provide a static public IP shared by multiple VMs.  
 3. It does not provide inbound internet access to your VMs.  
-## and Traffic Manager.
+
+## Traffic Manager.
+Azure Traffic Manager is a DNS-based global load balancer that distributes user traffic across multiple application endpoints located in different Azure regions, datacenters, or even external environments. It is used used for failover, performance routing, and geographic routing between Azure regions. It improves availability, performance, and disaster recovery by directing users to the most appropriate endpoint.  It is an Azure service you create to decide which location users should be sent to.  
+In the Azure portal.
+text ```
+Azure Portal
+ └─ Network foundation
+      └─ Traffic Manager Profile
+           └─ Create
+```  
+It is a managed Azure networking service. You don't install it on a VM. Microsoft runs it as a platform service.
+Traffic Manager can direct traffic to:  
+Azure App Services  
+Azure Virtual Machines  
+Public Load Balancers  
+AKS Clusters  
+External websites  
+On-premises servers
 
 
 ### Load balancing and content delivery: Manage, distribute, and optimize your applications and workload.
