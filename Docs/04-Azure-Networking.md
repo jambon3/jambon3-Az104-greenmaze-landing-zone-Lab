@@ -161,7 +161,7 @@ Remember these three points:
 ## Traffic Manager.
 Azure Traffic Manager is a DNS-based global load balancer that distributes user traffic across multiple application endpoints located in different Azure regions, datacenters, or even external environments. It is used used for failover, performance routing, and geographic routing between Azure regions. It improves availability, performance, and disaster recovery by directing users to the most appropriate endpoint.  It is an Azure service you create to decide which location users should be sent to.  
 In the Azure portal.
-text ```
+```text
 Azure Portal
  └─ Network foundation
       └─ Traffic Manager Profile
