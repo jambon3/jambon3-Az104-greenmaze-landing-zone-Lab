@@ -177,7 +177,66 @@ External websites
 On-premises servers
 
 
-### Load balancing and content delivery: Manage, distribute, and optimize your applications and workload.
+### Load balancing and content delivery
+Service commonly found under load balancing and content delivery
+```text 
+Load balancing and content delivery
+├─ Azure Load Balancer
+├─ Azure Application Gateway
+├─ Azure Front Door
+├─ Azure Traffic Manager
+├─ Azure CDN
+└─ Web Application Firewall (WAF)
+```
+# What each does
+Azure Load Balancer  
+Layer 4 (TCP/UDP)  
+Distributes traffic across VMs within a region  
+Internal or public load balancing  
+
+Azure Application Gateway  
+Layer 7 (HTTP/HTTPS)  
+URL-based routing  
+SSL termination  
+Web Application Firewall (WAF)  
+
+Azure Front Door  
+Global Layer 7 load balancing  
+Accelerates web traffic worldwide  
+WAF support  
+Modern replacement for many global web routing scenarios  
+
+Azure Traffic Manager    
+DNS-based global traffic routing  
+Regional failover  
+Performance-based routing  
+Geographic routing  
+Does not proxy the traffic itself.  
+Manage, distribute, and optimize your applications and workload.  
+
+# Way to Remember
+Traffic Manager  
+= Which REGION should the user go to?  
+
+Load Balancer  
+= Which SERVER should the user go to?  
+
+Application Gateway  
+= Which WEB APP path should the user go to?  
+
+Front Door  
+= Global web acceleration and routing.  
+
+CDN  
+= Cache content near the user.  
+
+# Each service has a different job:
+Traffic Manager chooses the region.  
+Application Gateway inspects HTTP/HTTPS requests.  
+Load Balancer distributes traffic among servers.  
+CDN caches static content.  
+Front Door can provide global web routing and acceleration.  
+
 ## Load Balance, Application Gateway, Route Server, NAT Gateway, and Traffic Manager.
 
 ### Hybrid connectivity: Secure communication to and from your resources in Azure
