@@ -177,7 +177,7 @@ External websites
 On-premises servers
 
 
-### Load balancing and content delivery
+# Load balancing and content delivery
 Service commonly found under load balancing and content delivery
 ```text 
 Load balancing and content delivery
@@ -188,7 +188,7 @@ Load balancing and content delivery
 ├─ Azure CDN
 └─ Web Application Firewall (WAF)
 ```
-# What each does
+### What each does
 Azure Load Balancer  
 Layer 4 (TCP/UDP)  
 Distributes traffic across VMs within a region  
@@ -214,7 +214,7 @@ Geographic routing
 Does not proxy the traffic itself.  
 Manage, distribute, and optimize your applications and workload.  
 
-# Way to Remember
+### Way to Remember
 Traffic Manager  
 = Which REGION should the user go to?  
 
@@ -230,14 +230,14 @@ Front Door
 CDN  
 = Cache content near the user.  
 
-# Each service has a different job:
+### Each service has a different job:
 Traffic Manager chooses the region.  
 Application Gateway inspects HTTP/HTTPS requests.  
 Load Balancer distributes traffic among servers.  
 CDN caches static content.  
 Front Door can provide global web routing and acceleration.  
 
-## Load Balance, Application Gateway, Route Server, NAT Gateway, and Traffic Manager.
+## Application Gateway, Route Server,
 
 ### Hybrid connectivity: Secure communication to and from your resources in Azure
 ## VPN Gateway, ExpressRoute, Virtual WAN, and Peering Service.
