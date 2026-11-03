@@ -178,7 +178,15 @@ On-premises servers
 
 
 # Load balancing and content delivery
-Service commonly found under load balancing and content delivery
+
+A load balancer is a service that distributes incoming network traffic across multiple servers or resources so that no single server becomes overloaded.  
+Azure Load Balancer: Distributes traffic between servers in the same region/VNet.  
+Azure Traffic Manager: Directs users to different regions using DNS.  
+Azure Application Gateway: Layer 7 load balancer for web apps (HTTP/HTTPS) with features like WAF.  
+
+
+Service commonly found under load balancing and content delivery  
+
 ```text 
 Load balancing and content delivery
 ├─ Azure Load Balancer
@@ -236,6 +244,7 @@ Application Gateway inspects HTTP/HTTPS requests.
 Load Balancer distributes traffic among servers.  
 CDN caches static content.  
 Front Door can provide global web routing and acceleration.  
+
 
 ## Application Gateway, Route Server,
 
