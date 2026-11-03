@@ -246,7 +246,34 @@ CDN caches static content.
 Front Door can provide global web routing and acceleration.  
 
 
-## Application Gateway, Route Server,
+## Application Gateway
+Azure Application Gateway is a web traffic load balancer (Layer 7) that manages HTTP/HTTPS traffic for web applications.  
+The Application Gateway can inspect the URL, host name, headers, and cookies before deciding where to send traffic. 
+
+Azure Load Balancer (Layer 4) Looks only at: IP Address, TCP/UDP Port
+Azure Application Gateway (Layer 7) Looks at: URL, Hostname, HTTP Headers, Cookies.  
+
+
+## Route Server,
+Azure Route Server is a service that lets your network virtual appliances (NVAs), such as firewalls or routers, automatically exchange routes with Azure using the BGP (Border Gateway Protocol).
+
+Without Route Server: You have to manually update routes: Azure VNet -- Route Table (manual) -- Firewall / Router  
+Every network change may require updating route tables manually.  
+
+With Route Server: Routes are learned automatically:  
+``` text
+Azure Route Server
+        |
+   BGP Routing
+   /         \
+Firewall     Router
+     |
+Azure VNet
+```
+✅ Automatic route exchange, ✅ No manual route updates, ✅ Dynamic routing, ✅ Easier management of network appliances  
+
+Border Gateway Protocol (BGP) is the routing protocol that routers use to tell each other: "I know how to reach this network."
+
 
 ### Hybrid connectivity: Secure communication to and from your resources in Azure
 ## VPN Gateway, ExpressRoute, Virtual WAN, and Peering Service.
