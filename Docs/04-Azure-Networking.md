@@ -223,20 +223,15 @@ Does not proxy the traffic itself.
 Manage, distribute, and optimize your applications and workload.  
 
 ### Way to Remember
-Traffic Manager  
-= Which REGION should the user go to?  
+Traffic Manager = Which REGION should the user go to?  
 
-Load Balancer  
-= Which SERVER should the user go to?  
+Load Balancer = Which SERVER should the user go to?  
 
-Application Gateway  
-= Which WEB APP path should the user go to?  
+Application Gateway = Which WEB APP path should the user go to?  
 
-Front Door  
-= Global web acceleration and routing.  
+Front Door = Global web acceleration and routing.  
 
-CDN  
-= Cache content near the user.  
+CDN = Cache content near the user.  
 
 ### Each service has a different job:
 Traffic Manager chooses the region.  
@@ -272,11 +267,86 @@ Azure VNet
 ```
 ✅ Automatic route exchange, ✅ No manual route updates, ✅ Dynamic routing, ✅ Easier management of network appliances  
 
-Border Gateway Protocol (BGP) is the routing protocol that routers use to tell each other: "I know how to reach this network."
-
+# Border Gateway Protocol (BGP) 
+BGP is the routing protocol that routers use to tell each other: "I know how to reach this network." It is the routing protocol that allows routers, especially those belonging to different networks, to exchange information about which IP networks they can reach.
 
 ### Hybrid connectivity: Secure communication to and from your resources in Azure
-## VPN Gateway, ExpressRoute, Virtual WAN, and Peering Service.
+Hybrid connectivity means connecting your company's on-premises infrastructure to Microsoft Azure so both environments can communicate securely.
+If the question asks...	Think about...
+Connect an entire office to Azure securely over the internet	Site-to-Site VPN
+Connect an individual employee's laptop to Azure	Point-to-Site VPN
+Private dedicated connectivity to Microsoft cloud	ExpressRoute
+Configure Azure VPN Gateway	GatewaySubnet
+Represent the on-premises network in Azure	Local Network Gateway
+Resolve private DNS names across environments	Azure DNS Private Resolver
+
+## VPN Gateway,  
+An Azure VPN Gateway creates an encrypted connection between an Azure Virtual Network (VNet) and another network using the public internet. You want employees and servers in Montreal to communicate securely with Azure. A VPN Gateway creates an encrypted tunnel between the office network and Azure.  
+Imagine your company has:  
+- An office in Montreal with servers and computers.  
+- An Azure VNet hosting virtual machines in Canada Central.  
+You want employees and servers in Montreal to communicate securely with Azure.  
+
+A VPN Gateway creates an encrypted tunnel between the office network and Azure.  
+
+Common VPN connection types:  
+Type	Purpose  
+Site-to-Site (S2S)	Connects an entire office network to Azure  
+Point-to-Site (P2S)	Connects an individual laptop to Azure  
+VNet-to-VNet	Connects two Azure VNets  
+
+## ExpressRoute  
+ExpressRoute connects your on-premises infrastructure to Microsoft cloud services through a private connectivity provider. Unlike a VPN Gateway, ExpressRoute does not send your traffic through the public internet. ExpressRoute provides a private network connection between your infrastructure and Microsoft's network.  
+Why use it?  
+- More predictable network performance.  
+- Private connectivity.  
+- High bandwidth options.  
+- Suitable for large enterprise environments.  
+Example: A bank needs reliable connectivity between its datacenter and Azure to support critical applications.  
+
+Remember: ExpressRoute = private connection to Microsoft's network.  
+
+## Azure Virtual WAN, 
+Azure Virtual WAN is a networking service that simplifies connecting multiple offices, remote users, and Azure VNets through a centralized architecture.  
+Imagine your company has:  
+- Montreal office.  
+- Toronto office.  
+- Vancouver office.  
+- London office.  
+- Several Azure VNets.  
+
+Without Virtual WAN, you may need to configure and manage many individual connections.  
+Virtual WAN provides centralized hubs that can connect:  
+- Branch offices through VPN.  
+- Datacenters through ExpressRoute.  
+- Remote users.  
+- Azure VNets.  
+
+## and Peering Service.
+Azure Peering Service improves internet connectivity between your users or enterprise network and Microsoft's  cloud services through participating internet service providers.  
+It is not the same as VNet peering.  
+
+For example:  
+
+Your employees in Montreal use:  
+- Microsoft 365  
+- Azure  
+- SharePoint Online  
+- Microsoft Teams  
+Their traffic travels through an ISP before reaching Microsoft's network.  
+
+Peering Service works with participating providers to optimize the routing of that traffic toward Microsoft.  
+
+Remember: Peering Service = optimized internet routing to Microsoft services.  
+
+```text
+Compare all four
+Service	Main purpose	Connection
+VPN Gateway	Securely connect networks	Encrypted internet tunnel
+ExpressRoute	Private enterprise connectivity	Private provider connection
+Virtual WAN	Connect many networks centrally	VPN, ExpressRoute and other connections
+Peering Service	Improve connectivity to Microsoft	Optimized internet routing
+```
 
 ### Network security: Protect your web app and IaaS seviceces from DDos attacks and malicous actors.
 ## Firewall manager, Firewall, Web application Firewal, and DDos protection
