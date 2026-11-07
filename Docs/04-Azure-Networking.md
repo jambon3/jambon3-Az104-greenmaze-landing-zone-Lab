@@ -348,17 +348,52 @@ Virtual WAN	Connect many networks centrally	VPN, ExpressRoute and other connecti
 Peering Service	Improve connectivity to Microsoft	Optimized internet routing
 ```
 
-### Network security: Protect your web app and IaaS seviceces from DDos attacks and malicous actors.
-## Firewall manager, Firewall, Web application Firewal, and DDos protection
+## Firewall manager Web application Firewal, and DDos protection
+Azure Firewall Manager, Web Application Firewall (WAF), and DDoS Protection
+These three Azure security solutions work together, but they have different responsibilities.
 
-### Network management and monitoring: Manage and monitor your network resources.
-## Network Watcher, Az Monitor, and Az virtual Network Manager.
+## Azure Firewall Manager
+Purpose: Centrally manage and organize network security across multiple Azure environments.
+Azure Firewall Manager helps you centrally manage firewall policies and security configurations across your Azure network architecture.
+## Web application Firewal
+Protect web applications against malicious web traffic. WAF inspects HTTP and HTTPS requests and can block suspicious traffic based on configured rules.
+
+## DDos Network protection
+Protect Azure network resources against Distributed Denial of Service attacks.
+
+
+## Az Network Watcher
+Purpose: Monitor, diagnose, and troubleshoot Azure network connectivity.  
+Network Watcher is one of the most important services in this section.  
+, Az Monitor, and Az virtual Network Manager.
 
 ### Container networking: Enhanced security and observability for containerized workloads on AZ Kubernetes Service (AKS)
-## Container network security and Container network observability.
+Enhanced security and observability for containerized workloads on Azure Kubernetes Service (AKS).
+Azure Kubernetes Service (AKS) is Microsoft's managed Kubernetes service.
+Kubernetes helps automate:  
+- Container deployment.  
+- Scaling applications.  
+- Container recovery when something fails.  
+- Load balancing.  
+- Application networking.  
+- Workload management.  
 
+## Container network security 
+Imagine your AKS cluster contains three application components:
+- Frontend.  
+- Backend.  
+- Database.  
+By default, pods can communicate with other pods without network restrictions.  
+This can create security risks.  
 
+For example, if an attacker compromises your frontend container, they might attempt to communicate directly with your database.  
 
+Network Policies allow you to control which pods can communicate with one another.  
+
+## Container network observability.
+it means monitoring and understanding the network traffic going in, out, and between containers.
+
+In Azure, this is particularly important when you're running containerized applications on Azure Kubernetes Service (AKS).
 
 ### Azure Bastion
 Azure Bastion is a service that you can deploy in a virtual network to connect to a virtual machine by using your browser and the Azure portal. You can also connect by using the native SSH or RDP client already installed on your local computer. The Azure Bastion service is a fully platform-managed PaaS service that you deploy inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect through Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software. Azure Bastion offers four SKU tiers: Developer, Basic, Standard, and Premium. The tier you select affects the available features. 
@@ -401,12 +436,6 @@ An NSG is usually sufficient for basic subnet and VM traffic control. Azure Fire
 
 An important distinction: creating a VNet and subnets does not automatically isolate the subnets from each other. You use NSGs and other network controls to enforce the security boundaries you need.
 
-
-
-
-
-Azure DDoS Network Protection  
-
 ### Address spaces, CIDR, subnetting, and VNet design.
 An Azure virtual network is a logical isolation of the Azure cloud resources.  
 
@@ -419,14 +448,7 @@ Each virtual network has its own Classless Inter-Domain Routing (CIDR) block and
 
 You can link virtual networks with an on-premises IT infrastructure to create hybrid or cross-premises solutions, when the CIDR blocks of the connecting networks don't overlap.
 
-
-
-
-
-
 ## Network connectivity
-
-### VNet peering, VPN Gateway, ExpressRoute, and service endpoints.
 
 ## Vnet service endpoints
 The key idea: You can restrict access to an Azure service so that only selected VNets can access it.  
@@ -441,20 +463,4 @@ Important details:
 Service Endpoint: Restricts an Azure service's network access to selected VNets/subnets.  
 Private Endpoint: Gives an Azure service a private IP address inside your VNet.  
 
-## Network security
-
-### Network Security Groups (NSGs), application security groups, and Azure Firewall basics.
-
-
-
-
 ## DNS and traffic routing
-
-### Azure DNS, private DNS zones, route tables, and effective routes.
-
-
-
-
-## Network troubleshooting
-
-### Network Watcher, connection troubleshoot, IP flow verify, and packet capture.
