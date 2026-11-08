@@ -26,6 +26,10 @@ The smallest supported IPv4 subnet is /29. It means Azure supports IPv4 subnet s
 <img src="image/subnet-reserve.png" alt="subnet-reserve" width="600">  
 First 4 + last 1 = 5 reserved IPv4 addresses per subnet.
 
+# The  table summarizes each networking category, its key services, and its primary use case:
+
+<img src="image/summary.png" alt="summary" width="600">  
+
 ### Creating a VNet in the portal
 1. Search for Virtual networks in the Azure portal.
 2. Select Create.
@@ -86,6 +90,8 @@ Communicate to the internet: All resources in a virtual network can communicate 
 Communicate with on-premises networks: Connect your on-premises computers and networks to a virtual network by using VPN Gateway or ExpressRoute.  
 
 Encrypt traffic between resources: Use Virtual network encryption to encrypt traffic between resources in a virtual network.  
+
+### NIC
 
 ## Azure DNS
 
@@ -464,3 +470,13 @@ Service Endpoint: Restricts an Azure service's network access to selected VNets/
 Private Endpoint: Gives an Azure service a private IP address inside your VNet.  
 
 ## DNS and traffic routing
+
+
+# Questions:
+
+Explain CIDR for a nontechnical audience. Provide examples.  
+
+What are the basic steps and considerations for creating a virtual network in Azure?  
+
+What types of Azure resources should be assigned a static IP address?  
+
