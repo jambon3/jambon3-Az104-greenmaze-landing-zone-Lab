@@ -481,6 +481,9 @@ Private Endpoint: Gives an Azure service a private IP address inside your VNet.
 
 Explain CIDR for a nontechnical audience. Provide examples.  
 
+SDR System defined route
+UDR User defined route
+
 What are the basic steps and considerations for creating a virtual network in Azure?  
 
 What types of Azure resources should be assigned a static IP address?  
