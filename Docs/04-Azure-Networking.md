@@ -15,8 +15,13 @@ CIDR   total Ip address
 /26  64  
 /25  128  
 /24  256  
+   
+255 is the maximum value, but 256 is the total number of possible addresses because counting starts at zero.  
+Tcp/ip says first and last ip not available so 256-2= 254
+then Azure takes the next 3 available.
+Azure takes the first one for default gateway, second and thrd for DNS and name space for that network subnet.
 
-Azure reserves five IP addresses in every subnet, so a /24 provides 251 usable addresses.  
+So Azure reserves five IP addresses in every subnet, so a /24 provides 251 usable addresses.  
 
 Remember: a smaller prefix number means a larger network. For example, /16 contains more addresses than /24.  
 
