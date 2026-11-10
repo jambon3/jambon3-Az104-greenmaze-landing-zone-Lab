@@ -114,3 +114,10 @@ Consider network security groups. You can associate zero or one network security
 
 Consider private links. Azure Private Link provides private connectivity from a virtual network to Azure platform as a service (PaaS), customer-owned, or Microsoft partner services. Private Link simplifies the network architecture and secures the connection between endpoints in Azure. The service eliminates data exposure to the public internet.
 
+### Plan for azure IP addressing
+-Ensure address spaces don't overlap  
+-Use a few large virtual networks instead of multiple smaller ones.  
+-Decide if your IP addresses should be private or public
+-Decide if the IP addresses should be statically or dynamically allocated - consider using speparate subnets
+-Subnets shouldn't cover the entire address space of the virtual network. 
+-Never manage IP addresses from within the virtual machine.

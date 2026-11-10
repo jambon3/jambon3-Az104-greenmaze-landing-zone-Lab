@@ -437,9 +437,17 @@ Azure Firewall is stateful: it tracks connections and automatically allows the r
 ### Azure Firewall vs. NSG vs. Bastion 
 These three services have different purposes.  
 
-Network Security Group (NSG): Filter traffic to and from network interfaces or subnets using IPs, ports, and protocols. An NSG contains inbound and outbound security rules. Each rule can specify a source, destination, port, protocol, and whether to allow or deny the traffic. NSGs are stateful, meaning return traffic for an allowed connection is automatically permitted.  
+Network Security Group (NSG): Filter traffic to and from network interfaces or subnets using IPs, ports, and protocols. An NSG contains inbound and outbound security rules. Each rule can specify a source, destination, port, protocol, and whether to allow or deny the traffic. NSGs are stateful, meaning return traffic for an allowed connection is automatically permitted.  NSG are free. 
+can put nsg at two level 1. normally at subnet 2. at NAC
+Azure Firewall: Centralize traffic inspection and filtering across networks, with application-aware rules and additional threat protection. have a cost  
 
-Azure Firewall: Centralize traffic inspection and filtering across networks, with application-aware rules and additional threat protection.  
+-NSGs are evaluated independly for the subnet and NIC  
+-an "allow rule must exist at both level for traffic to be admitted
+-Use the effective rules link if you are not sure which security rules are being applied. Inbound and Outbound
+
+Application security groups (ASG) 
+ASG allows you to group virtual machines logically so you can manage network security rules based on application roles rather than individual IP addresses. Think of ASGs as groups of servers that perform similar jobs. Instead of writing security rules for every individual IP address, you create ASGs. ASGs are used inside Network Security Group (NSG) rules. 
+
 
 Azure Bastion: Securely connect administrators to VMs over RDP or SSH through the Azure portal.  
 
@@ -488,3 +496,10 @@ What are the basic steps and considerations for creating a virtual network in Az
 
 What types of Azure resources should be assigned a static IP address?  
 
+### Public IP addressing
+Public IP addresses / IP address association
+VM / NIC
+Load balance / front-end configuration
+VPN Gateway / Gateway IP configuration
+Application Gateway / Front-end configuation
+Azure Firewall / Front-end configuration
