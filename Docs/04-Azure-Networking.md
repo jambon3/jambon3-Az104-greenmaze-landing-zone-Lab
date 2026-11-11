@@ -333,9 +333,10 @@ Virtual WAN provides centralized hubs that can connect:
 - Remote users.  
 - Azure VNets.  
 
-## and Peering Service.
+##  Peering Service.
 Azure Peering Service improves internet connectivity between your users or enterprise network and Microsoft's  cloud services through participating internet service providers.  
 It is not the same as VNet peering.  
+Vnet and all its subnet can talk to another Vnet with network peering.  
 
 For example:  
 
@@ -350,6 +351,14 @@ Peering Service works with participating providers to optimize the routing of th
 
 Remember: Peering Service = optimized internet routing to Microsoft services.  
 
+With VNet Peering:  
+- Virtual machines in VNet-A can communicate with VNet-B.  
+- Traffic stays on Microsoft's private backbone.  
+- No VPN tunnel is required.  
+- Low latency and high bandwidth.  
+- Both VNets must have non-overlapping IP address spaces.  
+
+
 ```text
 Compare all four
 Service	Main purpose	Connection
@@ -358,7 +367,9 @@ ExpressRoute	Private enterprise connectivity	Private provider connection
 Virtual WAN	Connect many networks centrally	VPN, ExpressRoute and other connections
 Peering Service	Improve connectivity to Microsoft	Optimized internet routing
 ```
+Gateway transit is a feature of VNet Peering, not a separate type of connection.
 
+It allows one Azure VNet to share its VPN Gateway or ExpressRoute Gateway with another peered VNet.
 ## Firewall manager Web application Firewal, and DDos protection
 Azure Firewall Manager, Web Application Firewall (WAF), and DDoS Protection
 These three Azure security solutions work together, but they have different responsibilities.
@@ -471,7 +482,18 @@ You can link virtual networks with an on-premises IT infrastructure to create hy
 
 ## Vnet service endpoints
 The key idea: You can restrict access to an Azure service so that only selected VNets can access it.  
-A service endpoint allows a selected subnet in your VNet to access a supported Azure service, while allowing you to restrict that service's network access to authorized VNets/subnets.  
+A service endpoint allows a selected subnet in your VNet to access a supported Azure service, while allowing you to restrict that service's network access to authorized VNets/subnets. Traffic always stays on the MS Az backbone network.
+
+Peering = Network connectivity.  
+Service Endpoint = Subnet identity and access to a service.  
+Private Endpoint = Private IP connectivity to a service.  
+
+## User-defined routes UDR
+UDR overide the default system routes  
+Traffic can be directed to virtual app, Virtual Network Gateway, Virtual Network, Internet, or None  
+Border Gateway Protocol (BGP) exchanges routes between Az and on-prm networks
+You can specify a service tag as the address prefix for a user-defined route instead of an explicit IP range.
+
 
 Important details:  
 1. You enable the service endpoint on a subnet, not directly on an individual VM.  
@@ -503,3 +525,11 @@ Load balance / front-end configuration
 VPN Gateway / Gateway IP configuration
 Application Gateway / Front-end configuation
 Azure Firewall / Front-end configuration
+
+DNS zone: Host the dns records for a particular domain.
+
+DNS records: information to handle requests. 
+
+Public DNS: 
+private DNS zone:
+DNS private resolvers
