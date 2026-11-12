@@ -385,9 +385,13 @@ Protect Azure network resources against Distributed Denial of Service attacks.
 
 
 ## Az Network Watcher
+
 Purpose: Monitor, diagnose, and troubleshoot Azure network connectivity.  
 Network Watcher is one of the most important services in this section.  
 , Az Monitor, and Az virtual Network Manager.
+
+IP flow verify: Checks if a packet is allowed or denied to or from an Azure VM based on the configured security and admin rules. 
+
 
 ### Container networking: Enhanced security and observability for containerized workloads on AZ Kubernetes Service (AKS)
 Enhanced security and observability for containerized workloads on Azure Kubernetes Service (AKS).
