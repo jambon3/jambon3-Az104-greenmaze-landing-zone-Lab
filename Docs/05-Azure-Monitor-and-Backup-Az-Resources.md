@@ -1,4 +1,4 @@
-Azure Monitor is the central monitoring service in Azure.  
+# Azure Monitor is the central monitoring service in Azure.  
 
 The four important components
 ``` text
@@ -116,7 +116,7 @@ Packet Capture = What packets are actually being transmitted?
 
 
 
-# BACKUP AND RECOVERY
+# Backup & Recovery
 Azure Backup is Microsoft's backup service for protecting Azure and supported on-premises workloads.
 
 What can Azure Backup protect? Azure Virtual Machines. Azure Files. SQL Server running in Azure VMs. On-premises Windows machines through the MARS agent. Workloads protected through DPM or Microsoft Azure Backup Server. Other supported workloads using the appropriate vault and protection configuration.
@@ -159,8 +159,10 @@ GRS: Replicates data to a secondary region.
 A backup policy determines when backups occur and how long recovery points are retained.  
 
 **Important policy components**
+```text
 **Setting**	            **Purpose**
 Backup frequency	How often backups occur
 Backup schedule	    When backups run
 Retention	        How long recovery points are kept
 Instant restore	    Provides short-term snapshot-based recovery, depending on workload
+```
