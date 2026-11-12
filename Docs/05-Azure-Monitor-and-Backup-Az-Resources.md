@@ -101,6 +101,7 @@ VM Insights and Dependency Mapping: VM Insights can help you understand dependen
 Azure Network Watcher is particularly important.
 It helps diagnose network connectivity issues in Azure.  
 <img src="image/features-networkwatch.png" alt="features-networkwatch" width="600">
+
 ### IP Flow Verify
 IP Flow Verify tells you whether the traffic is allowed or denied by the applicable NSG rules and identifies the rule responsible.
 
@@ -166,3 +167,114 @@ Backup schedule	    When backups run
 Retention	        How long recovery points are kept
 Instant restore	    Provides short-term snapshot-based recovery, depending on workload
 ```
+
+### VM backup policy types
+- Standard policy.  
+- Enhanced policy.  
+
+They offer different scheduling and backup capabilities. Enhanced policies provide more   flexible scheduling and additional backup capabilities for supported VM configurations.  
+
+### Operational vs Vault-Standard backup
+Azure VM backup has different backup storage tiers and retention capabilities.  
+Operational backup supports quick recovery using locally available snapshots.  
+Vault-Standard backup stores recovery points in the backup vault's managed storage.  
+Longer-term retention and stronger isolation are important reasons to use vault storage.  
+
+## Soft Delete and Backup Security
+This is a particularly important security topic. What happens if a malicious administrator deletes a backup?  
+You do not want the backup to disappear immediately.  
+
+**Soft Delete** retains deleted backup data for a recovery period, allowing recovery if the deletion was accidental or malicious.  
+
+
+```text
+Feature	                   Purpose  
+Soft Delete	Protects      deleted backup data
+Enhanced Soft Delete	  Provides additional protection controls for supported workloads
+Immutability	          Prevents protected backup data from being modified or deleted during the immutability period
+Multi-user authorization (MUA)	Adds approval protection for sensitive vault operations
+Resource Guard	          Helps protect critical backup operations against unauthorized changes
+```
+
+### Backup and Restore Operations  
+For an Azure VM:  
+1. Open Recovery Services vault.  
+2. Select Backup items.  
+3. Select Azure Virtual Machine.  
+4. Select the protected VM.  
+5. Choose Restore VM.  
+6. Select a recovery point.  
+7. Choose the restoration configuration.  
+8. Start the restore operation.  
+
+**Types of VM restoration**  
+```text
+Restore option	              Purpose
+Create new VM	            Restore as a separate virtual machine
+Replace existing disks	    Restore disks to the existing VM's configuration
+Restore disks	            Restore disks separately for manual configuration
+```
+The exact options depend on the protected workload and restore configuration.  
+
+
+### Important: Restore vs Rebuild
+Restore = Recover data or resources from a backup.  
+Rebuild = Deploy a new resource and configure it again.  
+Replication = Maintain a copy of a workload at another location.  
+These are different recovery strategies.  
+
+# Azure Site Recovery (ASR)
+**Azure Site Recovery is a disaster recovery service.**
+This is different from Azure Backup.  
+
+Site Recovery helps you replicate workloads and perform failover to another region. 
+
+**Backup vs Site Recovery**
+<img src="image/backupvssiterecovery.png" alt="backupvssiterecovery" width="600">
+A backup protects your data at specific recovery points. Replication keeps a copy of your workload updated at the secondary location.  
+
+### Important Site Recovery terminology
+<img src="image/terminology.png" alt="terminology" width="600">
+
+
+## Recovery Point Objective (RPO) vs Recovery Time Objective (RTO)
+RPO: How much data can we afford to lose? 
+
+RTO: How long can the business afford to be unavailable?  
+
+If a question talks about maximum acceptable data loss, think RPO. If it talks about maximum acceptable downtime, think RTO.  
+
+<img src="image/rporto.png" alt="rporto" width="600">
+
+# WHAT TO MEMORIZE FOR THE EXAM
+
+**If the question asks...               Think of...**
+```text
+Monitor CPU usage	                        Azure Monitor Metrics
+Analyze detailed events	                    Log Analytics
+Query log information	                    KQL
+Send logs to another destination	        Diagnostic settings
+Notify administrator of CPU threshold	    Metric alert
+Detect failed logins using queries	        Log search alert
+Detect VM deletion	                        Activity Log alert
+Send an email when an alert fires	        Action Group
+Suppress alerts during maintenance	        Alert Processing Rule
+Determine whether an NSG allows traffic	    IP Flow Verify
+Find the next network hop	                Next Hop
+Continuously monitor network latency	    Connection Monitor
+Capture packets	                            Packet Capture
+Monitor VM performance and dependencies	     VM Insights
+Monitor application exceptions	            Application Insights
+Back up an Azure VM	                        Azure Backup
+Manage Azure VM backup	                    Recovery Services vault
+Protect supported newer backup workloads	Backup vault
+Recover deleted backup data	                Soft Delete
+Protect backup data from deletion	        Immutability
+Replicate VMs to another region	            Site Recovery
+Switch to secondary region	                Failover
+Test disaster recovery	                    Test failover
+Return to original region	                Failback
+Maximum acceptable data loss	            RPO
+Maximum acceptable downtime	                RTO
+```
+
