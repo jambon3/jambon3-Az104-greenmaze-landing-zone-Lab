@@ -96,11 +96,11 @@ Network Insights: Helps monitor network resources, connectivity and network heal
 VM Insights and Dependency Mapping: VM Insights can help you understand dependencies between machines and their network connections.
 
 # Azure Network Watcher
-<img src="Neetworkwatcher.png" alt="Neetworkwatcher" width="600">  
+
+<img src="image/Neetworkwatcher.png" alt="Neetworkwatcher" width="600">  
 Azure Network Watcher is particularly important.
 It helps diagnose network connectivity issues in Azure.  
-<img src="features-networkwatch.png" alt="features-networkwatch" width="600">  
-
+<img src="image/features-networkwatch.png" alt="features-networkwatch" width="600">
 ### IP Flow Verify
 IP Flow Verify tells you whether the traffic is allowed or denied by the applicable NSG rules and identifies the rule responsible.
 
@@ -123,10 +123,10 @@ What can Azure Backup protect? Azure Virtual Machines. Azure Files. SQL Server r
 
 ### Recovery Services Vault vs Backup Vault
 Azure has two important vault types.
-<img src="Recovservvsbackupvault.png" alt="Recovservvsbackupvault" width="600"> 
 
-<img src="2.png" alt="2" width="600"> 
+<img src="image/Recovservvsbackupvault.png" alt="Recovservvsbackupvault" width="600">
 
+<img src="image/2.png" alt="2" width="600">
 Recovery Services vaults support Azure Site Recovery. Backup vaults do not replace Recovery Services vaults for Site Recovery.
 
 Creating a Recovery Services Vault
@@ -139,7 +139,7 @@ Typical process:
 6. Choose vault name.
 7. Choose region.
 8. Review and create.
-<img src="createrevoceryservicevault.png" alt="createrevoceryservicevault" width="600"> 
+<img src="image/createrevoceryservicevault.png" alt="createrevoceryservicevault" width="600">
 
 **Important considerations**
 A vault is a separate Azure resource.  
