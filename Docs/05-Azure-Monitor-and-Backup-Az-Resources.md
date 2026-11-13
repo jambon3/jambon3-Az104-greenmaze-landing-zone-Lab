@@ -115,12 +115,28 @@ Connection Troubleshoot = Why can't these endpoints communicate?
 Connection Monitor = Is connectivity consistently healthy over time?  
 Packet Capture = What packets are actually being transmitted?  
 
+### on prem
+For on-premises Windows machines, you can back up directly to Azure with the Azure Backup Microsoft Azure Recovery Services (MARS) agent. Alternatively, you can back up these Windows machines to a backup server, perhaps a System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server (MABS). You can then back that server up to a Recovery Services vault in Azure.  
 
+You can back up supported Azure VMs directly. By default, Azure Backup uses the Azure VM agent and a backup extension for application-consistent or file-system-consistent snapshots. If you only want to back up files and folders on a supported Windows Azure VM, you can use the MARS agent; MARS doesn't support Linux.  
+
+Recovery Services vaults and Backup vaults manage backup policies, protected items, and recovery points for their supported workloads. Vaulted backup stores an isolated copy of protected data in Azure Backup-managed storage. Operational protection can instead retain data or snapshots in the customer's subscription without creating a vaulted copy.
+
+### Access tiers
+There are three access tiers where the backups can be stored:
+
+Snapshot tier: Supported workloads, such as Azure VMs and Azure Files, can retain point-in-time snapshots for quick recovery. Azure VM backup snapshots are retained in the customer's subscription; Azure Files backup uses file-share snapshots. Azure Blob operational backup isn't snapshot-based: it uses native storage features such as point-in-time restore and versioning.    
+
+Vault-standard tier: For supported workloads configured for vaulted backup, this tier stores an isolated copy of backup data in Azure Backup-managed storage. Supporting snapshots or   operational backup doesn't automatically mean that a workload has a vaulted copy as well.  
+
+Archive tier: Customers rely on Azure Backup for storing backup data, including their Long-Term Retention (LTR) backup data, with retention needs defined in the organization's compliance rules. In most cases, the older backup data is rarely accessed and is only stored for compliance needs.
 
 # Backup & Recovery
 Azure Backup is Microsoft's backup service for protecting Azure and supported on-premises workloads.
 
 What can Azure Backup protect? Azure Virtual Machines. Azure Files. SQL Server running in Azure VMs. On-premises Windows machines through the MARS agent. Workloads protected through DPM or Microsoft Azure Backup Server. Other supported workloads using the appropriate vault and protection configuration.
+
+On supported Windows Azure VMs, the Microsoft Azure Recovery Services (MARS) agent can back up files and folders. System-state backup requires a Windows Server operating system supported for that feature in the MARS support matrix. MARS doesn't support Linux.  
 
 ### Recovery Services Vault vs Backup Vault
 Azure has two important vault types.
@@ -245,6 +261,12 @@ RTO: How long can the business afford to be unavailable?
 If a question talks about maximum acceptable data loss, think RPO. If it talks about maximum acceptable downtime, think RTO.  
 
 <img src="image/rporto.png" alt="rporto" width="600">
+
+### workbook
+Azure Backup integrates with Log Analytics for monitoring and reporting and provides reports via Workbooks.  
+Azure Backup provides in-built job monitoring for operations such as configuring backup, backing up, restoring, deleting backups, and so on. Azure Backup is scoped to the vault, making it ideal for monitoring a single vault.  
+
+If you need to monitor operational activities at scale, Backup Explorer provides an aggregated view of your entire backup estate, enabling detailed drill-down analysis and troubleshooting. It's a built-in Azure Monitor workbook that provides a single, central location to help you monitor operational activities across the entire backup estate on Azure, spanning tenants, locations, subscriptions, resource groups, and vaults.
 
 # WHAT TO MEMORIZE FOR THE EXAM
 
