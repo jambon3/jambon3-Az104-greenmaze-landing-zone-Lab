@@ -1,35 +1,3 @@
-# What is Azure Backup?
-The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
-<img src="image/backups.png" alt="backups" width="600">  
-
-<img src="choice.png" alt="choice" width="600">  
-
-### Recovery Time Objective (RTO)
-Recovery Time Objective (RTO) is the target time within which a business process must be restored after a disaster occurs to avoid unacceptable consequences. For instance, if a critical application goes down due to a server failure and the business can only tolerate a maximum of four hours of downtime, then the RTO is four hours.  
-
-Recovery Point Objective (RPO) is the maximum amount of data loss, measured in time, that your organization can sustain during an event.  
-
-### What data is backed up and how?
-The simplest explanation of Azure Backup is that it backs up data, machine state, and workloads running on on-premises machines and VM instances to the Azure cloud. Azure Backup uses Recovery Services vaults and Backup vaults to manage protection; where backup data is stored depends on the workload and backup tier.
-
-For on-premises Windows machines, you can back up directly to Azure with the Azure Backup Microsoft Azure Recovery Services (MARS) agent. Alternatively, you can back up these Windows machines to a backup server, perhaps a System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server (MABS). You can then back that server up to a Recovery Services vault in Azure.
-
-You can back up supported Azure VMs directly. By default, Azure Backup uses the Azure VM agent and a backup extension for application-consistent or file-system-consistent snapshots. If you only want to back up files and folders on a supported Windows Azure VM, you can use the MARS agent; MARS doesn't support Linux.
-
-Recovery Services vaults and Backup vaults manage backup policies, protected items, and recovery points for their supported workloads. Vaulted backup stores an isolated copy of protected data in Azure Backup-managed storage. Operational protection can instead retain data or snapshots in the customer's subscription without creating a vaulted copy.
-
-### Supported backup types
-Backup types depend on the workload. Azure VM backup uses an initial full backup followed by incremental backups that transfer changed blocks. DPM/MABS use incremental backups for disk backups and backups to Azure. Workload-aware SQL Server backup in Azure VMs instead uses the full, differential, and transaction log backup types described next.
-
-Azure Backup supports the following SQL Server database backup types:
-
-<img src="typebackup.png" alt="typebackup" width="600">  
-
-
-
-
-
-
 
 
 Understand the main compute services

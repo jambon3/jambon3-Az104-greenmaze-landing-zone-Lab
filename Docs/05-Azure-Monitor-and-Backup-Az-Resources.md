@@ -1,3 +1,9 @@
+# What is Azure Backup?
+The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
+<img src="image/backups.png" alt="backups" width="600">  
+
+<img src="choice.png" alt="choice" width="600">  
+
 # Azure Monitor is the central monitoring service in Azure.  
 
 The four important components
